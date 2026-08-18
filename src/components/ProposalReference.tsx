@@ -1,130 +1,110 @@
-import {
-  ArrowUpRight,
-  BarChart3,
-  Check,
-  Mail,
-  MessageCircle,
-  MousePointerClick,
-  RefreshCw,
-  Search,
-  Settings,
-  ShieldCheck,
-  Sparkles,
-  Star,
-  Target,
-  Users,
-} from "lucide-react";
+import { ArrowUpRight, Check } from "lucide-react";
 import styles from "./ProposalReference.module.css";
 
-const growthLevers = [
+const PROOF = [
+  { value: "7", label: "days to complete the audit" },
+  { value: "15–30", label: "days to stabilise Meta" },
+  { value: "45–60", label: "days to stabilise Google" },
+  { value: "90", label: "days to scale proven winners" },
+];
+
+const MARQUEE = [
+  "Meta Ads",
+  "Google Ads",
+  "Creative",
+  "Website CRO",
+  "Local SEO",
+  "AI Search",
+  "WhatsApp",
+  "Retention",
+];
+
+const SERVICES = [
   {
-    icon: Target,
-    title: "Paid Acquisition",
-    copy: "Meta Ads + Google Ads structured around bookings and revenue — not just cheap leads.",
-    tag: "Acquire",
+    title: "Performance",
+    copy: "Meta and Google acquisition managed around booked appointments, revenue quality and profitable service demand.",
+    cta: "Acquire better customers",
+    visual: "performance",
   },
   {
-    icon: MousePointerClick,
-    title: "Conversion",
-    copy: "Offers, landing pages, booking journeys and website CRO that turn intent into appointments.",
-    tag: "Convert",
+    title: "Web & Conversion",
+    copy: "Premium website, landing pages, booking journeys and CRO designed to convert more intent into appointments.",
+    cta: "Convert more demand",
+    visual: "commerce",
   },
   {
-    icon: Search,
-    title: "Organic Growth",
-    copy: "Local SEO, technical SEO and AI-search visibility across high-intent salon discovery moments.",
-    tag: "Discover",
+    title: "Creative & Offers",
+    copy: "Static creative, supplied-footage edits, offer packaging and testing systems built for paid acquisition.",
+    cta: "Improve creative velocity",
+    visual: "creative",
   },
   {
-    icon: RefreshCw,
+    title: "Search & Organic",
+    copy: "Local SEO, technical SEO, service discovery and AI-search visibility around high-intent salon moments.",
+    cta: "Compound organic demand",
+    visual: "search",
+  },
+  {
     title: "Retention",
-    copy: "WhatsApp, email, memberships and reactivation flows that increase repeat visits and value.",
-    tag: "Retain",
+    copy: "WhatsApp, email, memberships, reviews and reactivation flows that turn first visits into repeat revenue.",
+    cta: "Increase lifetime value",
+    visual: "retention",
   },
   {
-    icon: Star,
-    title: "Reputation",
-    copy: "Review generation, response systems, referrals and social proof across all three branches.",
-    tag: "Advocate",
-  },
-  {
-    icon: BarChart3,
-    title: "Growth Intelligence",
-    copy: "Tracking, branch analysis and service-level reporting so we know what deserves more budget.",
-    tag: "Measure",
+    title: "Growth Foundation",
+    eyebrow: "Recommended system",
+    copy: "Acquisition, conversion, retention and intelligence connected around one branch-level commercial view.",
+    cta: "Build the full system",
+    visual: "foundation",
     featured: true,
   },
-];
+] as const;
 
-const proofCards = [
+const WORK = [
   {
-    label: "01 / Meta system",
-    title: "Recurring-service demand engine",
-    copy: "Creative, audience and offer testing around repeat-friendly services so Meta becomes predictable.",
-    metrics: ["Creative hooks", "Lead quality", "Booked visits"],
-    tone: "light",
+    category: "META ACQUISITION · CREATIVE · OFFERS",
+    title: "Stabilise the Meta growth system within the first 15–30 days.",
+    visual: "meta",
+    metrics: [["15–30", "day focus"], ["Creative", "testing"], ["Offers", "iterated"]],
   },
   {
-    label: "02 / Google system",
-    title: "High-intent search capture",
-    copy: "Search structure, offer intent and landing-page alignment built around high-value service demand.",
-    metrics: ["Search intent", "Offer fit", "Booking rate"],
-    tone: "soft",
+    category: "GOOGLE SEARCH · INTENT · CONVERSION",
+    title: "Rebuild Google around the services and searches that signal booking intent.",
+    visual: "google",
+    metrics: [["45–60", "day focus"], ["Search", "clean-up"], ["Intent", "segmented"]],
   },
   {
-    label: "03 / Offer design",
-    title: "Landing pages that convert demand",
-    copy: "Premium positioning, branch-specific offers and clearer booking pathways across the website journey.",
-    metrics: ["CRO", "Lead forms", "Appointment flow"],
-    tone: "dark",
+    category: "WEBSITE CRO · BOOKING EXPERIENCE",
+    title: "Turn paid demand into more booked appointments with a stronger digital journey.",
+    visual: "conversion",
+    metrics: [["CRO", "website"], ["Offers", "landing pages"], ["Booking", "journey"]],
   },
   {
-    label: "04 / Growth intelligence",
-    title: "One growth view across all 3 branches",
-    copy: "The intelligence layer that shows which branch, service, offer and audience combinations deserve more budget.",
-    metrics: ["Branch", "Service", "Offer", "Audience"],
-    tone: "feature",
+    category: "RETENTION · SEO · REPUTATION",
+    title: "Build the compounding layer around repeat visits, reviews and organic discovery.",
+    visual: "retention",
+    metrics: [["90", "day system"], ["3", "branches"], ["Full funnel", "growth"]],
     featured: true,
   },
-];
+] as const;
 
-const roadmap = [
-  {
-    when: "DAY 01–07",
-    title: "Diagnose",
-    accent: "Audit delivered",
-    bullets: ["Paid media + tracking audit", "Booking and website diagnosis", "Offers, creative and SEO review"],
-  },
-  {
-    when: "DAY 08–30",
-    title: "Fix + Test Meta",
-    accent: "15–30 day focus",
-    bullets: ["Account and tracking cleanup", "Audience + offer testing", "Creative testing system"],
-  },
-  {
-    when: "DAY 15–60",
-    title: "Rebuild Google",
-    accent: "45–60 day focus",
-    bullets: ["Search structure + keywords", "Negatives + service segmentation", "Landing-page alignment"],
-  },
-  {
-    when: "DAY 30–90",
-    title: "Compound + Scale",
-    accent: "Scale proven winners",
-    bullets: ["SEO + retention systems", "Branch × service insights", "Scale profitable combinations"],
-  },
-];
+const ROADMAP = [
+  ["01", "DAY 01–07", "Complete growth audit", "Paid media, tracking, website, offers, creative, SEO and customer journey."],
+  ["02", "DAY 08–30", "Fix + test Meta", "Account structure, tracking, audiences, offers and a repeatable creative testing loop."],
+  ["03", "DAY 15–60", "Rebuild Google", "Search structure, keywords, negatives, service segmentation and landing-page alignment."],
+  ["04", "DAY 30–90", "Compound + scale", "CRO, SEO, retention, reviews and more budget behind proven branch × service combinations."],
+] as const;
 
-const performanceItems = [
+const PERFORMANCE = [
   "Meta Ads management",
   "Google Ads management",
-  "Static creatives + video edits",
-  "Creative strategy + offer testing",
+  "Static creatives + supplied-footage edits",
+  "Creative strategy + existing offer testing",
   "Analytics + performance reporting",
   "SEO + conversion recommendations",
 ];
 
-const growthItems = [
+const GROWTH = [
   "Everything in Performance",
   "Website CRO + premium UI/UX improvements",
   "Landing pages + new offer creation",
@@ -134,358 +114,292 @@ const growthItems = [
   "Growth dashboard + branch/service analysis",
 ];
 
-const lifecycle = [
-  "Enquiry",
-  "Booking",
-  "Visit",
-  "Review",
-  "Repeat",
-  "Member",
-  "Referral",
-];
+function Arrow() {
+  return <span aria-hidden>↗</span>;
+}
 
-const outcomes = [
-  "Lower acquisition cost",
-  "Higher booking conversion",
-  "More profitable service mix",
-  "Higher repeat-booking rate",
-  "Clear branch-level performance",
-];
+function ServiceVisual({ type }: { type: (typeof SERVICES)[number]["visual"] }) {
+  if (type === "performance") {
+    return (
+      <div className={`${styles.serviceVisual} ${styles.performanceVisual}`} aria-hidden>
+        <div className={styles.visualRing} />
+        <div className={styles.performanceCard}><span>META / TEST</span><strong>30D</strong><i>↗</i></div>
+        <div className={styles.performanceBars}><i /><i /><i /><i /><i /></div>
+        <div className={styles.visualCursor}>↗</div>
+        <div className={styles.visualWord}>BOOKINGS</div>
+      </div>
+    );
+  }
+
+  if (type === "commerce") {
+    return (
+      <div className={`${styles.serviceVisual} ${styles.commerceVisual}`} aria-hidden>
+        <div className={styles.browserMini}>
+          <div className={styles.browserDots}><i /><i /><i /></div>
+          <div className={styles.browserHero}><b>PREMIUM<br />SERVICE PAGE</b><span>BOOK APPOINTMENT</span></div>
+          <div className={styles.browserRows}><i /><i /><i /></div>
+        </div>
+        <div className={styles.phoneMini}><span>BOOKING</span><strong>3 taps</strong><i>→</i></div>
+      </div>
+    );
+  }
+
+  if (type === "creative") {
+    return (
+      <div className={`${styles.serviceVisual} ${styles.creativeVisual}`} aria-hidden>
+        <div className={styles.creativePoster}><span>THE</span><strong>OFFER.</strong><small>clear • premium • specific</small></div>
+        <div className={styles.creativeSticker}>15–20<br />STATICS</div>
+        <div className={styles.creativeTape}>TEST → LEARN → SCALE</div>
+      </div>
+    );
+  }
+
+  if (type === "search") {
+    return (
+      <div className={`${styles.serviceVisual} ${styles.searchVisual}`} aria-hidden>
+        <div className={styles.searchBox}>best salon near me <b>⌕</b></div>
+        <div className={styles.searchResult}><span>BLUSH N CURLS</span><b>Premium salon · Dubai</b><i /></div>
+        <div className={styles.searchResult}><span>LOCAL SEO</span><b>Service + branch intent</b><i /></div>
+        <div className={styles.searchBadge}>AI SEARCH READY</div>
+      </div>
+    );
+  }
+
+  if (type === "retention") {
+    return (
+      <div className={`${styles.serviceVisual} ${styles.retentionVisual}`} aria-hidden>
+        <div className={styles.flowLine} />
+        <div className={`${styles.flowNode} ${styles.flowOne}`}>1ST<br />VISIT</div>
+        <div className={`${styles.flowNode} ${styles.flowTwo}`}>REPEAT</div>
+        <div className={`${styles.flowNode} ${styles.flowThree}`}>MEMBER</div>
+        <div className={styles.messageCard}>WhatsApp<br /><strong>time to rebook?</strong></div>
+      </div>
+    );
+  }
+
+  return (
+    <div className={`${styles.serviceVisual} ${styles.foundationVisual}`} aria-hidden>
+      <div className={styles.foundationOrbit}><i /><i /><i /><i /></div>
+      <div className={styles.foundationCore}>GE<br /><span>GROWTH</span></div>
+      <div className={`${styles.foundationTag} ${styles.foundationTagOne}`}>META</div>
+      <div className={`${styles.foundationTag} ${styles.foundationTagTwo}`}>GOOGLE</div>
+      <div className={`${styles.foundationTag} ${styles.foundationTagThree}`}>CRO</div>
+      <div className={`${styles.foundationTag} ${styles.foundationTagFour}`}>RETENTION</div>
+    </div>
+  );
+}
+
+function WorkVisual({ type }: { type: (typeof WORK)[number]["visual"] }) {
+  if (type === "meta") {
+    return (
+      <div className={`${styles.workVisual} ${styles.workMeta}`} aria-hidden>
+        <div className={styles.workPhone}><span>CREATIVE TEST</span><strong>15–30</strong><small>DAY META SYSTEM</small></div>
+        <div className={styles.workBars}><i /><i /><i /><i /><i /><i /></div>
+        <div className={styles.workChip}>HOOK × OFFER × AUDIENCE</div>
+      </div>
+    );
+  }
+  if (type === "google") {
+    return (
+      <div className={`${styles.workVisual} ${styles.workGoogle}`} aria-hidden>
+        <div className={styles.searchDial}>45–60<span>DAYS</span></div>
+        <div className={styles.keywordStack}><span>hair salon dubai</span><span>keratin treatment</span><span>nail salon near me</span><span>premium facial</span></div>
+      </div>
+    );
+  }
+  if (type === "conversion") {
+    return (
+      <div className={`${styles.workVisual} ${styles.workConversion}`} aria-hidden>
+        <div className={styles.funnelPanel}><span>AD</span><i>→</i><span>OFFER</span><i>→</i><span>BOOK</span></div>
+        <div className={styles.conversionCard}><b>BOOKING JOURNEY</b><strong>less friction</strong><small>clear service · clear branch · clear CTA</small></div>
+      </div>
+    );
+  }
+  return (
+    <div className={`${styles.workVisual} ${styles.workRetention}`} aria-hidden>
+      <div className={styles.retentionDial}>90<span>DAY</span></div>
+      <div className={styles.retentionTiles}><i>SEO</i><i>REVIEWS</i><i>EMAIL</i><i>WHATSAPP</i></div>
+      <div className={styles.retentionCaption}>COMPOUND THE CUSTOMER VALUE</div>
+    </div>
+  );
+}
 
 export default function ProposalReference() {
   return (
-    <div className={styles.page}>
+    <div className={styles.homepage}>
       <header className={styles.navWrap}>
         <nav className={styles.nav} aria-label="Proposal navigation">
-          <a href="#top" className={styles.brand} aria-label="Blush N Curls proposal home">
-            <span className={styles.brandMark}>B</span>
-            <span>
-              <b>Blush N Curls</b>
-              <small>Growth proposal</small>
-            </span>
-          </a>
-          <div className={styles.navLinks}>
-            <a href="#system">Growth system</a>
-            <a href="#roadmap">Roadmap</a>
-            <a href="#packages">Packages</a>
-            <a href="#outcomes">Outcomes</a>
-          </div>
-          <a className={styles.navCta} href="#packages">View proposal <ArrowUpRight size={14} /></a>
+          <a className={styles.brand} href="#top"><b>BLUSH N CURLS</b><small>GROWTH PROPOSAL</small></a>
+          <div className={styles.navLinks}><a href="#system">System</a><a href="#proof">Plan</a><a href="#roadmap">Roadmap</a><a href="#packages">Packages</a></div>
+          <a className={styles.navCta} href="#packages">View proposal <ArrowUpRight size={13} /></a>
         </nav>
       </header>
 
       <main>
         <section id="top" className={styles.hero}>
-          <div className={styles.heroGrid} aria-hidden />
+          <div className={styles.heroBackdrop} aria-hidden />
           <div className={styles.heroShell}>
             <div className={styles.heroCopy}>
-              <p className={styles.eyebrow}>Growth Escalators × Blush N Curls</p>
-              <h1>
-                <span>Growth,</span>
-                <span>Engineered.</span>
-                <em>For Blush N Curls.</em>
+              <p className={styles.eyebrow}>Proposal for Blush N Curls · Dubai</p>
+              <h1 className={styles.heroTitle}>
+                <span className={styles.heroLine}>GROWTH,</span>
+                <span className={styles.heroLine}>ENGINEERED.</span>
               </h1>
-              <p className={styles.heroLead}>
-                A connected growth system to acquire better customers, convert more bookings,
-                increase repeat revenue and know what is actually driving growth.
-              </p>
+              <p className={styles.heroAccent}>For Blush N Curls.</p>
+              <p className={styles.heroLead}>A connected acquisition, conversion and retention system designed to create more bookings, stronger customer economics and clearer branch-level growth.</p>
               <div className={styles.heroActions}>
-                <a className={styles.primaryButton} href="#system">Explore the system <ArrowUpRight size={16} /></a>
-                <a className={styles.textButton} href="#roadmap">See the 90-day plan <ArrowUpRight size={15} /></a>
+                <a href="#system" className={styles.primaryCta}>Explore the system <Arrow /></a>
+                <a href="#roadmap" className={styles.textLink}>See the 90-day plan <Arrow /></a>
               </div>
             </div>
 
-            <div className={styles.heroStage} aria-label="Blush N Curls connected growth system diagram">
-              <div className={styles.stageRail}><span>01 / ACQUIRE</span><span>02 / CONVERT</span><span>03 / RETAIN</span></div>
-              <div className={styles.stagePlane}>
-                <div className={styles.stageGrid} />
-                <div className={`${styles.stageNode} ${styles.metaNode}`}><span>Meta</span><b>Demand</b></div>
-                <div className={`${styles.stageNode} ${styles.googleNode}`}><span>Google</span><b>Intent</b></div>
-                <div className={`${styles.stageNode} ${styles.bookingNode}`}><span>Bookings</span><b>Convert</b></div>
-                <div className={`${styles.stageNode} ${styles.retentionNode}`}><span>Retention</span><b>Repeat</b></div>
-                <div className={styles.stageCore}>
-                  <Sparkles size={22} />
-                  <strong>Growth<br />System</strong>
-                  <small>One connected engine</small>
-                </div>
+            <div className={styles.heroStage} aria-label="Blush N Curls growth system visual">
+              <div className={styles.heroStageRail}><span>01 / ACQUISITION</span><span>02 / EXPERIENCE</span><span>03 / RETENTION</span></div>
+              <div className={styles.heroMedia}>
+                <div className={styles.heroCanvasGrid} />
+                <div className={styles.heroCanvasTitle}>ONE CONNECTED<br /><strong>GROWTH SYSTEM.</strong></div>
+                <div className={styles.heroPath} />
+                <span className={`${styles.heroNode} ${styles.heroNodeOne}`}>META</span>
+                <span className={`${styles.heroNode} ${styles.heroNodeTwo}`}>GOOGLE</span>
+                <span className={`${styles.heroNode} ${styles.heroNodeThree}`}>BOOKINGS</span>
+                <span className={`${styles.heroNode} ${styles.heroNodeFour}`}>RETENTION</span>
               </div>
-              <div className={styles.stageBadge}><span>BRANCHES</span><strong>3</strong><small>one growth view</small></div>
-              <div className={styles.stageTag}>DUBAI × GROWTH</div>
+              <div className={styles.heroInset}>
+                <span>GROWTH VIEW</span>
+                <strong>3</strong>
+                <small>branches connected</small>
+              </div>
+              <div className={styles.heroMetric}><span>START HERE</span><strong>7D</strong><small>full growth audit</small></div>
+              <div className={styles.heroTag}>DUBAI × GROWTH</div>
             </div>
           </div>
 
           <div className={styles.proofRail}>
-            <div><strong>7</strong><span>days to complete audit</span></div>
-            <div><strong>15–30</strong><span>days to stabilise Meta</span></div>
-            <div><strong>45–60</strong><span>days to stabilise Google</span></div>
-            <div><strong>90</strong><span>days to scale what proves itself</span></div>
+            {PROOF.map((item) => <div className={styles.proofItem} key={item.label}><strong>{item.value}</strong><span>{item.label}</span></div>)}
           </div>
         </section>
 
-        <section id="system" className={styles.systemSection}>
+        <section className={styles.brands} aria-label="Connected growth capabilities">
+          <div className={styles.sectionShell}><div className={styles.brandHeading}><p className={styles.eyebrow}>Connected around one commercial goal</p><span>Acquire → Convert → Retain → Measure</span></div></div>
+          <div className={styles.brandMarquee}><div className={styles.brandTrack}>{[...MARQUEE, ...MARQUEE].map((item, index) => <span key={`${item}-${index}`}>{item}</span>)}</div></div>
+        </section>
+
+        <section id="system" className={styles.services}>
           <div className={styles.sectionShell}>
-            <div className={styles.centerIntro}>
-              <p className={styles.eyebrow}>The opportunity</p>
+            <div className={styles.servicesIntro}>
+              <p className={styles.eyebrow}>One connected growth system</p>
               <h2>Every growth lever.<br />One connected system.</h2>
-              <p>
-                Blush N Curls already has the brand, branches and service depth. The next step is
-                connecting acquisition, conversion, retention and intelligence around one commercial goal.
-              </p>
+              <p>Paid acquisition, premium conversion, creative, search and retention work better when they share one commercial goal. This is the operating system we would build around Blush N Curls.</p>
+              <a className={styles.pillCta} href="#proof">See how we execute</a>
             </div>
 
-            <div className={styles.leverGrid}>
-              {growthLevers.map((lever) => {
-                const Icon = lever.icon;
-                return (
-                  <article key={lever.title} className={`${styles.leverCard} ${lever.featured ? styles.leverFeatured : ""}`}>
-                    <div className={styles.cardTop}>
-                      <span>{lever.tag}</span>
-                      <Icon size={22} />
-                    </div>
-                    <h3>{lever.title}</h3>
-                    <p>{lever.copy}</p>
-                    <div className={styles.cardVisual} aria-hidden>
-                      <i /><i /><i /><i />
-                    </div>
-                  </article>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        <section className={styles.intelligenceSection}>
-          <div className={styles.sectionShell}>
-            <div className={styles.intelligenceIntro}>
-              <div>
-                <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>Growth intelligence</p>
-                <h2>Growth you can see.<br />Proof you can measure.</h2>
-              </div>
-              <p>
-                The objective is not vanity performance. It is to see which branch, service,
-                offer and audience combinations create the highest-value salon customers — and
-                build the next round of spend around those signals.
-              </p>
-            </div>
-
-            <div className={styles.proofGrid}>
-              {proofCards.map((card) => {
-                const toneClass =
-                  card.tone === "light"
-                    ? styles.proofCardLight
-                    : card.tone === "soft"
-                      ? styles.proofCardSoft
-                      : card.tone === "dark"
-                        ? styles.proofCardDark
-                        : styles.proofCardFeature;
-
-                return (
-                  <article
-                    key={card.title}
-                    className={`${styles.proofCard} ${toneClass} ${card.featured ? styles.proofCardWide : ""}`}
-                  >
-                    <div className={styles.proofLabel}>{card.label}</div>
-                    <div className={styles.proofContent}>
-                      <div>
-                        <h3>{card.title}</h3>
-                        <p className={styles.proofCopy}>{card.copy}</p>
-                        <div className={styles.proofMetrics}>
-                          {card.metrics.map((metric) => (
-                            <span key={metric}>{metric}</span>
-                          ))}
-                        </div>
-                      </div>
-
-                      {card.featured ? (
-                        <div className={styles.proofFeatureStats}>
-                          <div><strong>3 branches</strong><small>one view</small></div>
-                          <div><strong>4 levers</strong><small>one system</small></div>
-                          <div><strong>7 days</strong><small>audit first</small></div>
-                          <div><strong>90 days</strong><small>scale next</small></div>
-                        </div>
-                      ) : null}
-                    </div>
-                    <div className={styles.proofBarVisual} aria-hidden>
-                      <i /><i /><i /><i /><i />
-                    </div>
-                  </article>
-                );
-              })}
-            </div>
-
-            <div className={styles.equation}>
-              <span>BRANCH</span><b>×</b><span>SERVICE</span><b>×</b><span>OFFER</span><b>×</b><span>AUDIENCE</span>
-              <i>→</i><strong>GROWTH</strong>
-            </div>
-          </div>
-        </section>
-
-        <section id="roadmap" className={styles.roadmapSection}>
-          <div className={styles.sectionShell}>
-            <div className={styles.roadmapIntro}>
-              <div>
-                <p className={styles.eyebrow}>How we move</p>
-                <h2>Your 7–30–60–90<br />day growth plan.</h2>
-              </div>
-              <p>
-                Audit first. Fix the acquisition systems next. Then compound growth across website,
-                search, retention and reputation instead of trying to change everything at once.
-              </p>
-            </div>
-
-            <div className={styles.timeline}>
-              {roadmap.map((step, index) => (
-                <article key={step.when} className={index === 0 ? styles.timelineFeatured : ""}>
-                  <div className={styles.timelineIndex}>0{index + 1}</div>
-                  <p className={styles.timelineWhen}>{step.when}</p>
-                  <h3>{step.title}</h3>
-                  <span className={styles.timelineAccent}>{step.accent}</span>
-                  <ul>{step.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>
+            <div className={styles.serviceGrid}>
+              {SERVICES.map((service) => (
+                <article className={`${styles.serviceCard} ${service.featured ? styles.serviceFeatured : ""}`} key={service.title}>
+                  <div className={styles.serviceContent}>
+                    {service.eyebrow ? <p className={styles.serviceEyebrow}>{service.eyebrow}</p> : null}
+                    <h3>{service.title}</h3>
+                    <p>{service.copy}</p>
+                    <span className={styles.cardCta}>{service.cta}</span>
+                  </div>
+                  <ServiceVisual type={service.visual} />
                 </article>
               ))}
             </div>
-
-            <div className={styles.auditBand}>
-              <div className={styles.auditTitle}>
-                <ShieldCheck size={24} />
-                <div><span>Before a single dirham is scaled</span><strong>First 7-day audit</strong></div>
-              </div>
-              <div className={styles.auditItems}>
-                <span>Paid media</span><span>Tracking</span><span>Website + booking</span><span>Offers + creative</span><span>Local + AI SEO</span>
-              </div>
-            </div>
           </div>
         </section>
 
-        <section id="packages" className={styles.packagesSection}>
+        <section id="proof" className={styles.work}>
           <div className={styles.sectionShell}>
-            <div className={styles.centerIntro}>
-              <p className={styles.eyebrow}>Partnership options</p>
-              <h2>Two ways to<br />work together.</h2>
-              <p>Choose focused acquisition execution or connect the full growth system around it.</p>
+            <div className={styles.workIntro}>
+              <div><p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>The growth plan</p><h2>Growth you can see.<br />Proof you can measure.</h2></div>
+              <div className={styles.workIntroSide}><p>Fix the foundations first. Then make each growth lever measurable enough to scale with confidence.</p><a href="#roadmap" className={styles.lightPill}>See the roadmap</a></div>
             </div>
 
-            <div className={styles.packageGrid}>
-              <article className={styles.packageCard}>
-                <div className={styles.packageLabel}>Performance</div>
-                <h3>Performance Package</h3>
-                <p className={styles.packageCopy}>A focused acquisition partnership.</p>
-                <div className={styles.price}><span>AED</span><strong>2,500</strong><small>/ month</small></div>
-                <ul>{performanceItems.map((item) => <li key={item}><Check size={15} />{item}</li>)}</ul>
-                <a href="#contact" className={styles.packageButton}>Choose Performance <ArrowUpRight size={15} /></a>
-              </article>
-
-              <article className={`${styles.packageCard} ${styles.packageFeatured}`}>
-                <div className={styles.recommended}>Recommended for Blush N Curls</div>
-                <div className={styles.packageLabel}>Growth partnership</div>
-                <h3>Growth Partnership</h3>
-                <p className={styles.packageCopy}>Acquisition, conversion, retention and intelligence connected.</p>
-                <div className={styles.price}><span>AED</span><strong>4,000</strong><small>/ month</small></div>
-                <ul>{growthItems.map((item) => <li key={item}><Check size={15} />{item}</li>)}</ul>
-                <a href="#contact" className={styles.packageButton}>Choose Growth Partnership <ArrowUpRight size={15} /></a>
-              </article>
-            </div>
-            <p className={styles.packageNote}>Performance improves the advertising. <strong>Growth Partnership builds the system around it.</strong></p>
-          </div>
-        </section>
-
-        <section id="outcomes" className={styles.lifecycleSection}>
-          <div className={styles.sectionShell}>
-            <div className={styles.lifecycleTop}>
-              <div>
-                <p className={styles.eyebrow}>Customer economics</p>
-                <h2>Turn first-time visitors<br />into long-term customers.</h2>
-              </div>
-              <p>
-                Acquisition becomes more valuable when the first visit is connected to reviews,
-                repeat visits, memberships and referrals.
-              </p>
-            </div>
-
-            <div className={styles.lifecycleFlow}>
-              {lifecycle.map((step, index) => (
-                <div key={step}>
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-                  <strong>{step}</strong>
-                  {index < lifecycle.length - 1 ? <i>→</i> : null}
-                </div>
+            <div className={styles.caseList}>
+              {WORK.map((item) => (
+                <article className={`${styles.caseCard} ${item.featured ? styles.caseCardFeature : ""}`} key={item.title}>
+                  <div className={styles.caseMedia}><WorkVisual type={item.visual} /></div>
+                  <div className={styles.caseBody}>
+                    <div className={styles.caseCategory}>{item.category}</div>
+                    <h3>{item.title}</h3>
+                    <span className={styles.caseCta}>What we build <Arrow /></span>
+                    <div className={styles.caseMetrics}>{item.metrics.map(([value,label]) => <div className={styles.caseMetric} key={`${item.title}-${value}`}><span>↗</span><strong>{value}</strong><small>{label}</small></div>)}</div>
+                  </div>
+                </article>
               ))}
             </div>
-
-            <div className={styles.lifecycleChips}>
-              <span><MessageCircle size={14} /> Booking reminders</span>
-              <span><Mail size={14} /> Reactivation</span>
-              <span><Star size={14} /> Review requests</span>
-              <span><Users size={14} /> Memberships</span>
-              <span><RefreshCw size={14} /> Service reminders</span>
-            </div>
-
-            <div className={styles.outcomesBand}>
-              <div className={styles.outcomesHeading}><p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>Commercial outcomes</p><h3>Measure what matters.</h3></div>
-              <div className={styles.outcomeGrid}>
-                {outcomes.map((outcome, index) => (
-                  <div key={outcome}><span>0{index + 1}</span><strong>{outcome}</strong></div>
-                ))}
-              </div>
-            </div>
           </div>
         </section>
 
-        <section className={styles.scopeSection}>
+        <section className={styles.technology}>
           <div className={styles.sectionShell}>
-            <div className={styles.scopeIntro}>
-              <p className={styles.eyebrow}>Clear scope</p>
-              <h2>No surprises.</h2>
+            <div className={styles.techTop}>
+              <div className={styles.techCopy}><p className={styles.eyebrow}>Growth intelligence</p><h2>Meet your growth advantage.</h2><p>Instead of isolated channel reports, we connect spend to service demand, bookings, branch performance and repeat value so the next decision is obvious.</p><a href="#packages" className={styles.darkPill}>See the growth partnership</a></div>
+              <div className={styles.techBenefits}><span>Branch-level acquisition view</span><span>Service + offer performance</span><span>Booking and conversion visibility</span><span>Retention and reputation signals</span></div>
             </div>
-            <div className={styles.scopeGrid}>
-              <article>
-                <div className={styles.scopeIcon}><Check size={20} /></div>
-                <h3>Included in the partnership</h3>
-                <p>Strategy, campaign management, creative design, supplied-footage editing, reporting and the agreed CRO / SEO / lifecycle work within the selected package.</p>
-              </article>
-              <article>
-                <div className={styles.scopeIcon}><Settings size={20} /></div>
-                <h3>Separate third-party costs</h3>
-                <p>Media spend, shoots, raw production, WhatsApp/API fees, email platforms, CRM/software subscriptions, premium apps and major custom development.</p>
-              </article>
-            </div>
-          </div>
-        </section>
 
-        <section id="contact" className={styles.ctaSection}>
-          <div className={styles.ctaGlow} aria-hidden />
-          <div className={styles.sectionShell}>
-            <div className={styles.ctaGrid}>
-              <div className={styles.ctaCopy}>
-                <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>Next step</p>
-                <h2>You built the brand.<br />Now let&apos;s build the <em>growth engine.</em></h2>
-                <p>Start with the seven-day audit, build the acquisition foundation, then scale only what the data proves.</p>
-              </div>
-              <div className={styles.ctaCard}>
-                <div className={styles.ctaCardTop}><span>Recommended</span><strong>AED 4,000 / month</strong></div>
-                <div className={styles.ctaChecklist}>
-                  <span><Check size={15} /> Acquisition + CRO</span>
-                  <span><Check size={15} /> SEO + AI search</span>
-                  <span><Check size={15} /> Retention + reviews</span>
-                  <span><Check size={15} /> Growth intelligence</span>
+            <div className={styles.botStage}>
+              <div className={styles.botGlow} />
+              <div className={styles.botWindow}>
+                <div className={styles.botHeader}><div><b>Blush Growth Intelligence</b><span>One commercial view</span></div><span className={styles.online}><i /> Live system</span></div>
+                <div className={styles.dashboardGrid}>
+                  <div className={styles.dashboardPanel}><span>ACQUISITION</span><strong>Meta + Google</strong><div className={styles.dashboardBars}><i /><i /><i /><i /><i /></div></div>
+                  <div className={styles.dashboardPanel}><span>BRANCH VIEW</span><strong>Al Barsha</strong><small>Al Qusais · Mankhool</small></div>
+                  <div className={styles.dashboardPanel}><span>SERVICE SIGNAL</span><strong>What scales?</strong><small>Branch × service × offer</small></div>
+                  <div className={styles.dashboardPanel}><span>RETENTION</span><strong>Repeat value</strong><small>Reviews · loyalty · reactivation</small></div>
                 </div>
-                <a href="#packages" className={styles.ctaButton}>Start with the 7-day audit <ArrowUpRight size={16} /></a>
-                <small>Prepared exclusively for Blush N Curls by Growth Escalators.</small>
+                <div className={styles.dashboardFlow}><span>SPEND</span><b>→</b><span>ENQUIRY</span><b>→</b><span>BOOKING</span><b>→</b><span>VISIT</span><b>→</b><span>REPEAT</span></div>
+              </div>
+              <div className={styles.botSignalCard}><span>DECISION MODEL</span><strong>Branch × service × offer × audience</strong></div>
+              <div className={styles.botResultCard}><span>CONNECTED</span><strong>3 / 1</strong><small>branches / growth view</small></div>
+            </div>
+          </div>
+        </section>
+
+        <section className={styles.people}>
+          <div className={styles.sectionShell}>
+            <div className={styles.peopleGrid}>
+              <div className={styles.peopleCopy}><p className={styles.eyebrow}>How we operate</p><h2>Human-led.<br />AI-enabled.<br />Accountable.</h2><p>Strategy stays close to execution. Performance, creative, CRO, SEO and retention decisions are reviewed against the same commercial outcomes instead of disappearing into separate channel reports.</p><a className={styles.pillOutline} href="#roadmap">See how we move</a></div>
+              <div className={styles.peopleMedia} aria-label="No-face operating system visual">
+                <div className={styles.peopleMain}>
+                  <div className={styles.operatorHeader}><span>ONE GROWTH TEAM</span><b>BLUSH N CURLS</b></div>
+                  <div className={styles.operatorGrid}><i>PERFORMANCE</i><i>CREATIVE</i><i>CRO</i><i>SEO</i><i>RETENTION</i><i>ANALYTICS</i></div>
+                  <div className={styles.operatorLine}><span>ONE WEEKLY PRIORITY</span><strong>→ measurable growth</strong></div>
+                </div>
+                <div className={styles.peopleInset}><span>WEEKLY GROWTH ROOM</span><strong>Decide → Execute → Learn</strong><small>No faces. No silos. One owner per action.</small></div>
+                <div className={styles.peopleTag}>ACCOUNTABILITY × SPEED</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="roadmap" className={styles.insights}>
+          <div className={styles.sectionShell}>
+            <div className={styles.insightsHeading}><div><p className={styles.eyebrow}>How we move</p><h2>Thinking built<br />to move the work.</h2></div><span>7 / 30 / 60 / 90</span></div>
+            <div className={styles.insightsLayout}>
+              <article className={styles.featuredInsight}><span>01 / THE FIRST 90 DAYS</span><h3>AUDIT FIRST.<br />FIX ACQUISITION.<br />THEN COMPOUND.</h3><p>The operating principle is simple: diagnose the leaks, stabilise paid acquisition, improve conversion, then add retention and organic compounding.</p><div className={styles.featuredInsightTags}><i>Audit</i><i>Meta</i><i>Google</i><i>CRO</i><i>Retention</i></div></article>
+              <div className={styles.insightList}>{ROADMAP.map(([num,when,title,copy]) => <article key={num}><span>{num}</span><div><small>{when}</small><h3>{title}</h3><p>{copy}</p></div><b>↗</b></article>)}</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="packages" className={styles.packageBand}>
+          <div className={styles.sectionShell}>
+            <div className={styles.packageLayout}>
+              <div className={styles.packageIntro}><p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>Partnership options</p><h2>Choose your<br />growth partnership.</h2><p>Performance improves the advertising. Growth Partnership builds the system around it.</p><div className={styles.packageChecks}><span><Check size={15} /> 7-day audit first</span><span><Check size={15} /> No team-member faces</span><span><Check size={15} /> Clear monthly scope</span></div></div>
+              <div className={styles.packagePanel}>
+                <article className={styles.packageOption}><div><span>PERFORMANCE</span><h3>AED 2,500 <small>/ month</small></h3><p>A focused acquisition partnership.</p></div><ul>{PERFORMANCE.map(item => <li key={item}><Check size={14} />{item}</li>)}</ul></article>
+                <article className={`${styles.packageOption} ${styles.packageRecommended}`}><div className={styles.recommendedLabel}>RECOMMENDED FOR BLUSH N CURLS</div><div><span>GROWTH PARTNERSHIP</span><h3>AED 4,000 <small>/ month</small></h3><p>Acquisition, conversion, retention and intelligence connected.</p></div><ul>{GROWTH.map(item => <li key={item}><Check size={14} />{item}</li>)}</ul></article>
+                <a href="#top" className={styles.packageButton}>Start with the 7-day audit <ArrowUpRight size={16} /></a>
+                <p className={styles.packageFine}>Media spend, professional shoots, WhatsApp/API fees, software subscriptions and major custom development are separate.</p>
               </div>
             </div>
           </div>
         </section>
       </main>
 
-      <footer className={styles.footer}>
-        <div className={styles.sectionShell}>
-          <div className={styles.footerRow}>
-            <div className={styles.footerBrand}><span>GE</span><div><strong>Growth Escalators</strong><small>Connected growth systems</small></div></div>
-            <div className={styles.footerLinks}><a href="#system">System</a><a href="#roadmap">Roadmap</a><a href="#packages">Packages</a><a href="#outcomes">Outcomes</a></div>
-            <p>Prepared for Blush N Curls · 2026</p>
-          </div>
-        </div>
-      </footer>
+      <footer className={styles.footer}><div className={styles.sectionShell}><div className={styles.footerRow}><div><b>Growth Escalators</b><small>Connected growth systems</small></div><div className={styles.footerLinks}><a href="#system">System</a><a href="#proof">Plan</a><a href="#roadmap">Roadmap</a><a href="#packages">Packages</a></div><p>Prepared for Blush N Curls · 2026</p></div></div></footer>
     </div>
   );
 }
