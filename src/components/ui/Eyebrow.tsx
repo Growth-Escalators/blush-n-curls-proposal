@@ -2,32 +2,43 @@ import { ReactNode } from "react";
 
 type EyebrowProps = {
   children: ReactNode;
-  color?: "rose" | "gold";
+  color?: "berry" | "gold" | "cream";
   align?: "left" | "center";
   className?: string;
+  /** Adds a short horizontal rule before the label — echoes the reference's confident label treatment. */
+  rule?: boolean;
 };
 
 const colorMap = {
-  rose: "text-rose",
+  berry: "text-berry",
   gold: "text-gold",
+  cream: "text-cream",
+};
+
+const ruleColorMap = {
+  berry: "bg-berry",
+  gold: "bg-gold",
+  cream: "bg-cream",
 };
 
 /**
- * Small-caps label used above every section headline
- * (e.g. "THE OPPORTUNITY", "OUR APPROACH").
+ * Small-caps, wide-tracked label used above every section headline
+ * (e.g. "THE OPPORTUNITY", "EVERY GROWTH LEVER").
  */
 export default function Eyebrow({
   children,
-  color = "rose",
+  color = "berry",
   align = "left",
   className = "",
+  rule = false,
 }: EyebrowProps) {
   return (
     <p
-      className={`text-xs sm:[13px] font-semibold uppercase tracking-[0.18em] ${colorMap[color]} ${
-        align === "center" ? "text-center" : "text-left"
+      className={`flex items-center gap-2.5 text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.24em] ${colorMap[color]} ${
+        align === "center" ? "justify-center text-center" : "justify-start text-left"
       } ${className}`}
     >
+      {rule && <span className={`h-px w-6 shrink-0 ${ruleColorMap[color]}`} aria-hidden="true" />}
       {children}
     </p>
   );

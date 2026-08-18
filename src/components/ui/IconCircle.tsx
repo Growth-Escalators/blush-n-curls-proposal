@@ -1,6 +1,13 @@
 import { ReactNode } from "react";
 
-type Fill = "ink" | "rose" | "gold" | "outline-rose" | "outline-gold" | "blush";
+type Fill =
+  | "berry"
+  | "gold"
+  | "plum"
+  | "blush"
+  | "outline-berry"
+  | "outline-gold"
+  | "outline-cream";
 type Size = "sm" | "md" | "lg";
 
 type IconCircleProps = {
@@ -11,12 +18,13 @@ type IconCircleProps = {
 };
 
 const fillMap: Record<Fill, string> = {
-  ink: "bg-ink text-cream-text",
-  rose: "bg-rose text-cream-text",
-  gold: "bg-gold text-cream-text",
-  blush: "bg-blush-card text-rose",
-  "outline-rose": "border border-rose/50 text-rose bg-transparent",
+  berry: "bg-berry text-cream",
+  gold: "bg-gold text-plum",
+  plum: "bg-plum text-cream",
+  blush: "bg-blush text-berry-dark",
+  "outline-berry": "border border-berry/50 text-berry bg-transparent",
   "outline-gold": "border border-gold/50 text-gold bg-transparent",
+  "outline-cream": "border border-cream/40 text-cream bg-transparent",
 };
 
 const sizeMap: Record<Size, string> = {
@@ -32,12 +40,12 @@ const iconSizeMap: Record<Size, string> = {
 };
 
 /**
- * Circular icon badge used across cards, the Growth Engine stages,
- * and Success Metrics. Pass a lucide-react icon as children.
+ * Circular icon badge used across cards, the timeline, and outcomes.
+ * Pass a lucide-react icon as children.
  */
 export default function IconCircle({
   children,
-  fill = "rose",
+  fill = "berry",
   size = "md",
   className = "",
 }: IconCircleProps) {

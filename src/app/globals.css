@@ -1,42 +1,49 @@
 @import "tailwindcss";
 
 /* ==========================================================================
-   Blush N Curls × Growth Escalators — Design Tokens
-   Sampled from public/reference/mockup.png. Do not hardcode raw hex values
-   in components — always reference these tokens via Tailwind utilities
-   (e.g. bg-ivory, text-rose, border-border-beige, font-serif).
+   Blush N Curls × Growth Escalators — Design Tokens (v2 "Growth Consultancy")
+   Near-black plum / deep wine / warm ivory / muted blush / berry / champagne
+   gold. Do not hardcode raw hex values in components — always reference
+   these tokens via Tailwind utilities (e.g. bg-plum, text-berry, font-serif).
    ========================================================================== */
 
 :root {
-  /* Backgrounds */
-  --color-ivory: #f8f8f0;
-  --color-blush-tint: #f8f0f0;
-  --color-cream-tint: #f8f0e8;
-  --color-blush-card: #f8e8e8;
-  --color-charcoal: #1e1c1b;
-  --color-near-black: #0f0e0d;
+  /* Backgrounds — dark */
+  --color-plum: #140d14;
+  --color-plum-soft: #1e1520;
+  --color-wine: #2a1322;
+  --color-wine-soft: #3a1c2f;
+
+  /* Backgrounds — light */
+  --color-ivory: #f7f2ec;
+  --color-ivory-deep: #f0e6dc;
+  --color-blush: #efd9e2;
+  --color-blush-deep: #e2bfd0;
 
   /* Accents */
-  --color-rose: #b85078;
-  --color-rose-dark: #a34468;
-  --color-rose-soft: #e8b8c8;
-  --color-gold: #b08038;
-  --color-gold-dark: #96702e;
-  --color-gold-soft: #e8cfa0;
+  --color-berry: #c94f7d;
+  --color-berry-dark: #a63a63;
+  --color-berry-light: #e79ab7;
+  --color-gold: #c89a58;
+  --color-gold-dark: #a17d43;
+  --color-gold-light: #ddbd88;
 
-  /* Text */
-  --color-ink: #1a1613;
-  --color-muted: #6b6058;
-  --color-muted-on-dark: #b8afa6;
-  --color-cream-text: #f5f0e8;
+  /* Text — on light backgrounds */
+  --color-ink: #22141f;
+  --color-muted: #6d5763;
+
+  /* Text — on dark backgrounds */
+  --color-cream: #f7f2ec;
+  --color-muted-on-dark: #cbb2c0;
 
   /* Structure */
-  --color-border-beige: #e8ddd3;
-  --color-border-beige-dark: #38332f;
+  --color-border-light: #e2cfd8;
+  --color-border-dark: #43293a;
 
   /* Radii */
   --radius-card: 1.25rem;
   --radius-card-lg: 1.75rem;
+  --radius-tile: 1.5rem;
   --radius-pill: 999px;
   --radius-badge: 1rem;
 
@@ -46,41 +53,47 @@
 }
 
 @theme inline {
-  --color-ivory: var(--color-ivory);
-  --color-blush-tint: var(--color-blush-tint);
-  --color-cream-tint: var(--color-cream-tint);
-  --color-blush-card: var(--color-blush-card);
-  --color-charcoal: var(--color-charcoal);
-  --color-near-black: var(--color-near-black);
+  --color-plum: var(--color-plum);
+  --color-plum-soft: var(--color-plum-soft);
+  --color-wine: var(--color-wine);
+  --color-wine-soft: var(--color-wine-soft);
 
-  --color-rose: var(--color-rose);
-  --color-rose-dark: var(--color-rose-dark);
-  --color-rose-soft: var(--color-rose-soft);
+  --color-ivory: var(--color-ivory);
+  --color-ivory-deep: var(--color-ivory-deep);
+  --color-blush: var(--color-blush);
+  --color-blush-deep: var(--color-blush-deep);
+
+  --color-berry: var(--color-berry);
+  --color-berry-dark: var(--color-berry-dark);
+  --color-berry-light: var(--color-berry-light);
   --color-gold: var(--color-gold);
   --color-gold-dark: var(--color-gold-dark);
-  --color-gold-soft: var(--color-gold-soft);
+  --color-gold-light: var(--color-gold-light);
 
   --color-ink: var(--color-ink);
   --color-muted: var(--color-muted);
+  --color-cream: var(--color-cream);
   --color-muted-on-dark: var(--color-muted-on-dark);
-  --color-cream-text: var(--color-cream-text);
 
-  --color-border-beige: var(--color-border-beige);
-  --color-border-beige-dark: var(--color-border-beige-dark);
+  --color-border-light: var(--color-border-light);
+  --color-border-dark: var(--color-border-dark);
 
   --radius-card: var(--radius-card);
   --radius-card-lg: var(--radius-card-lg);
+  --radius-tile: var(--radius-tile);
   --radius-pill: var(--radius-pill);
   --radius-badge: var(--radius-badge);
 
   --font-serif: var(--font-serif);
   --font-sans: var(--font-sans);
 
-  --shadow-card: 0 4px 24px -6px rgb(26 22 19 / 0.08);
-  --shadow-card-hover: 0 12px 32px -8px rgb(26 22 19 / 0.14);
-  --shadow-elevated: 0 24px 64px -12px rgb(176 128 56 / 0.28);
-  --shadow-badge: 0 8px 24px -4px rgb(26 22 19 / 0.18);
-  --shadow-rose-glow: 0 16px 40px -10px rgb(184 80 120 / 0.35);
+  --shadow-card: 0 4px 24px -6px rgb(20 13 20 / 0.10);
+  --shadow-card-hover: 0 18px 44px -12px rgb(20 13 20 / 0.20);
+  --shadow-elevated: 0 34px 76px -16px rgb(20 13 20 / 0.38);
+  --shadow-dark-card: 0 26px 60px -16px rgb(0 0 0 / 0.55);
+  --shadow-berry-glow: 0 18px 44px -12px rgb(201 79 125 / 0.45);
+  --shadow-gold-glow: 0 18px 44px -12px rgb(200 154 88 / 0.4);
+  --shadow-badge: 0 10px 28px -6px rgb(20 13 20 / 0.22);
 
   --animate-fade-up: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
 
@@ -108,6 +121,14 @@ body {
 }
 
 ::selection {
-  background: var(--color-rose);
-  color: var(--color-cream-text);
+  background: var(--color-berry);
+  color: var(--color-cream);
+}
+
+/* Utility: soft grain/noise-free radial glow used behind hero + dark CTA compositions */
+.glow-berry {
+  background: radial-gradient(circle at 30% 20%, rgb(201 79 125 / 0.35), transparent 60%);
+}
+.glow-gold {
+  background: radial-gradient(circle at 70% 80%, rgb(200 154 88 / 0.25), transparent 60%);
 }

@@ -1,13 +1,14 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import OpportunitySection from "@/components/OpportunitySection";
-import GrowthEngine from "@/components/GrowthEngine";
-import PricingSection from "@/components/PricingSection";
-import GrowthEconomicsSection from "@/components/GrowthEconomicsSection";
-import BranchIntelligenceSection from "@/components/BranchIntelligenceSection";
+import GrowthSystemSection from "@/components/GrowthSystemSection";
+import InsightSection from "@/components/InsightSection";
+import ExecutionTimelineSection from "@/components/ExecutionTimelineSection";
+import AuditSection from "@/components/AuditSection";
+import PackagesSection from "@/components/PackagesSection";
+import CustomerEconomicsSection from "@/components/CustomerEconomicsSection";
 import LifecycleSection from "@/components/LifecycleSection";
-import Roadmap from "@/components/Roadmap";
-import SuccessMetrics from "@/components/SuccessMetrics";
+import SuccessSection from "@/components/SuccessSection";
 import ScopeSection from "@/components/ScopeSection";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
@@ -19,13 +20,14 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <OpportunitySection />
-        <GrowthEngine />
-        <PricingSection />
-        <GrowthEconomicsSection />
-        <BranchIntelligenceSection />
+        <GrowthSystemSection />
+        <InsightSection />
+        <ExecutionTimelineSection />
+        <AuditSection />
+        <PackagesSection />
+        <CustomerEconomicsSection />
         <LifecycleSection />
-        <Roadmap />
-        <SuccessMetrics />
+        <SuccessSection />
         <ScopeSection />
         <FinalCTA />
       </main>

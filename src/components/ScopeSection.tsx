@@ -1,5 +1,6 @@
 import { CheckCircle2, Check, Info } from "lucide-react";
 import Container from "@/components/ui/Container";
+import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/ui/Reveal";
 
 const included = [
@@ -8,42 +9,45 @@ const included = [
   "Creative design",
   "Video editing using supplied footage",
   "Reporting",
-  "Agreed website/CRO updates under Growth Partnership",
-  "Agreed SEO and lifecycle marketing work",
+  "Website / CRO improvements under relevant package scope",
+  "SEO and lifecycle marketing work under relevant package scope",
 ];
 
 const thirdParty = [
-  "Paid media budget",
-  "Professional photo/video shoots",
+  "Paid media spend",
+  "Professional photo/video production",
   "Raw content production",
-  "WhatsApp/API charges",
-  "Email platform costs",
-  "CRM/software subscriptions",
-  "Premium Shopify/WordPress plugins if required",
-  "Large custom development projects outside optimisation scope",
+  "WhatsApp / API charges",
+  "Email platform charges",
+  "Software / CRM tools",
+  "Premium plugins or apps",
+  "Major custom development outside agreed optimisation scope",
 ];
 
 export default function ScopeSection() {
   return (
-    <section id="scope" className="bg-ivory py-20 md:py-28">
+    <section id="scope" className="bg-ivory py-24 md:py-32">
       <Container>
-        <Reveal>
-          <h2 className="font-serif text-ink text-3xl sm:text-4xl font-semibold text-center">
-            Clear Scope. No Surprises.
-          </h2>
-        </Reveal>
+        <SectionHeading
+          eyebrow="Scope & Investment"
+          eyebrowColor="berry"
+          align="center"
+          size="lg"
+          title="Clear Scope. No Surprises."
+          description="Complete transparency on what Growth Escalators builds and manages, and what runs as a separate, pass-through cost."
+        />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-4xl mx-auto pt-10">
+        <div className="mx-auto mt-14 grid max-w-4xl grid-cols-1 gap-6 md:grid-cols-2 lg:mt-16 lg:gap-8">
           <Reveal delay={0.05}>
-            <div>
-              <h3 className="text-ink font-semibold text-base mb-4 flex items-center gap-2">
-                <CheckCircle2 className="text-rose h-5 w-5" />
+            <div className="h-full rounded-card border border-border-light bg-white/70 p-8 shadow-card">
+              <h3 className="flex items-center gap-2.5 font-serif text-base font-semibold text-ink">
+                <CheckCircle2 className="h-5 w-5 text-berry" aria-hidden="true" />
                 Included
               </h3>
-              <ul className="space-y-2.5 text-sm text-muted">
+              <ul className="mt-5 space-y-3 text-sm text-muted">
                 {included.map((item) => (
                   <li key={item} className="flex items-start gap-2.5">
-                    <Check className="text-rose h-4 w-4 mt-0.5 shrink-0" />
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-berry" strokeWidth={2.5} aria-hidden="true" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -51,16 +55,16 @@ export default function ScopeSection() {
             </div>
           </Reveal>
 
-          <Reveal delay={0.1}>
-            <div>
-              <h3 className="text-ink font-semibold text-base mb-4 flex items-center gap-2">
-                <Info className="text-gold h-5 w-5" />
+          <Reveal delay={0.12}>
+            <div className="h-full rounded-card border border-border-light bg-blush/30 p-8">
+              <h3 className="flex items-center gap-2.5 font-serif text-base font-semibold text-ink">
+                <Info className="h-5 w-5 text-gold-dark" aria-hidden="true" />
                 Separate / Third-Party Costs
               </h3>
-              <ul className="space-y-2.5 text-sm text-muted">
+              <ul className="mt-5 space-y-3 text-sm text-muted">
                 {thirdParty.map((item) => (
                   <li key={item} className="flex items-start gap-2.5">
-                    <span className="h-1.5 w-1.5 rounded-full bg-gold/60 mt-2 shrink-0" />
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-dark/70" aria-hidden="true" />
                     <span>{item}</span>
                   </li>
                 ))}
