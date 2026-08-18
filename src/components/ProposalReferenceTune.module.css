@@ -61,11 +61,190 @@
 .people { padding-top: clamp(122px,12vw,182px) !important; padding-bottom: clamp(126px,12vw,184px) !important; }
 .peopleMedia { min-height: 610px !important; }
 
+/* Make the 90-day plan read as an unmistakable timeline. */
 .insights { padding-top: clamp(124px,12vw,184px) !important; padding-bottom: clamp(126px,12vw,184px) !important; }
-.featuredInsight { min-height: 660px !important; }
+.insightsLayout {
+  grid-template-columns: .72fr 1.28fr !important;
+  gap: clamp(42px,5vw,72px) !important;
+  align-items: stretch !important;
+}
+.featuredInsight { min-height: 780px !important; padding: 44px !important; }
+.timeline {
+  position: relative;
+  border-top: 0 !important;
+  padding-left: 12px;
+  display: grid !important;
+  align-content: stretch;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: 61px;
+  top: 58px;
+  bottom: 58px;
+  width: 3px;
+  border-radius: 999px;
+  background: linear-gradient(180deg,#244cff 0%,#5d24f5 58%,#f06498 100%);
+  box-shadow: 0 0 0 7px rgba(36,76,255,.045);
+}
+.timelineItem {
+  position: relative;
+  z-index: 1;
+  min-height: 195px !important;
+  padding: 28px 0 !important;
+  grid-template-columns: 122px minmax(0,1fr) 22px !important;
+  gap: 26px !important;
+  align-items: center !important;
+  border-bottom: 1px solid rgba(23,6,83,.14) !important;
+}
+.timelineItem:first-child { border-top: 1px solid rgba(23,6,83,.14) !important; }
+.timelineNumber {
+  position: relative;
+  z-index: 2;
+  width: 98px;
+  height: 98px;
+  display: grid;
+  place-items: center;
+  border: 2px solid #244cff;
+  border-radius: 999px;
+  background: #f7f5ef;
+  color: #170653 !important;
+  font-size: 48px !important;
+  line-height: 1 !important;
+  letter-spacing: -.04em !important;
+  box-shadow: 0 10px 28px rgba(36,76,255,.08);
+}
+.timelineItem:nth-child(2) .timelineNumber { border-color: #5d24f5; }
+.timelineItem:nth-child(3) .timelineNumber { border-color: #8d3ce6; }
+.timelineItem:nth-child(4) .timelineNumber { border-color: #f06498; }
+.timelineContent small {
+  display: block;
+  margin-bottom: 11px;
+  color: #777b8d !important;
+  font-size: 9px !important;
+  letter-spacing: .16em !important;
+}
+.timelineContent h3 {
+  margin: 0 0 10px !important;
+  font-size: clamp(34px,3vw,46px) !important;
+  line-height: .9 !important;
+}
+.timelineContent p {
+  max-width: 650px;
+  font-size: 13px !important;
+  line-height: 1.58 !important;
+}
 
+/* SaaS-style pricing: two vertical plan cards instead of horizontal rows. */
 .packageBand { padding-top: clamp(126px,12vw,184px) !important; padding-bottom: clamp(126px,12vw,184px) !important; }
-.packagePanel { padding: 28px !important; border-radius: 30px !important; }
+.packageLayout {
+  grid-template-columns: 1fr !important;
+  gap: 62px !important;
+  align-items: start !important;
+}
+.packageIntro {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+.packageIntro h2 {
+  font-size: clamp(62px,6.8vw,96px) !important;
+  line-height: .82 !important;
+}
+.packageIntro > p:not(:first-child) {
+  max-width: 700px !important;
+  margin-inline: auto !important;
+}
+.packageIntro > div {
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 22px !important;
+}
+.packagePanel {
+  width: min(100%,1060px);
+  margin: 0 auto;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.packageCards {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 26px;
+  align-items: stretch;
+}
+.packageOption {
+  min-height: 690px;
+  margin-top: 0 !important;
+  padding: 42px 38px 34px !important;
+  display: flex !important;
+  flex-direction: column;
+  gap: 0 !important;
+  border-radius: 28px !important;
+  background: #fff;
+  box-shadow: 0 24px 60px rgba(4,0,36,.18);
+}
+.packageCardHead {
+  padding-bottom: 28px;
+  border-bottom: 1px solid rgba(23,6,83,.12);
+}
+.packageCardHead > span {
+  color: #244cff !important;
+  font-size: 9px !important;
+  letter-spacing: .16em !important;
+}
+.packageCardHead h3 {
+  margin-top: 18px !important;
+  font-size: clamp(46px,4.2vw,62px) !important;
+}
+.packageCardHead h3 small {
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 10px !important;
+}
+.packageCardHead p {
+  max-width: 380px;
+  margin-top: 13px !important;
+  font-size: 12px !important;
+  line-height: 1.55 !important;
+}
+.packageOption ul {
+  margin-top: 30px !important;
+  gap: 14px !important;
+}
+.packageOption li {
+  font-size: 11px !important;
+  line-height: 1.45 !important;
+}
+.packageCardButton {
+  width: 100%;
+  min-height: 52px !important;
+  margin-top: auto !important;
+  border-radius: 14px !important;
+  background: #170653 !important;
+  font-size: 9px !important;
+}
+.packageRecommended {
+  padding-top: 50px !important;
+  color: #fff !important;
+  border-color: rgba(255,255,255,.12) !important;
+  background: linear-gradient(160deg,#2f0b84 0%,#170653 72%,#10043d 100%) !important;
+  transform: translateY(-12px);
+  box-shadow: 0 32px 80px rgba(8,1,42,.34) !important;
+}
+.packageRecommended .packageCardHead { border-bottom-color: rgba(255,255,255,.16); }
+.packageRecommended .packageCardHead > span { color: #8ee7ff !important; }
+.packageRecommended h3 { color: #fff !important; }
+.packageRecommended p { color: #d8d2f2 !important; }
+.packageRecommended li { color: #eeeaff !important; }
+.packageRecommended li svg { color: #ffb656 !important; }
+.packageRecommended .packageCardButton {
+  color: #170653 !important;
+  background: #f7b84c !important;
+}
 
 @media (max-width: 900px) {
   .serviceCard { min-height: 540px !important; }
@@ -73,7 +252,16 @@
   .caseMedia { min-height: 400px !important; }
   .botStage { min-height: 690px !important; }
   .peopleMedia { min-height: 560px !important; }
+  .insightsLayout { grid-template-columns: 1fr !important; }
   .featuredInsight { min-height: 560px !important; }
+  .timeline { padding-left: 0; }
+  .timeline::before { left: 49px; }
+  .timelineItem { grid-template-columns: 98px 1fr 18px !important; min-height: 178px !important; gap: 18px !important; }
+  .timelineNumber { width: 78px; height: 78px; font-size: 40px !important; }
+  .packageCards { grid-template-columns: 1fr; max-width: 680px; margin: 0 auto; }
+  .packageOption { min-height: 0; padding-bottom: 34px !important; }
+  .packageRecommended { transform: none; }
+  .packageCardButton { margin-top: 34px !important; }
 }
 
 @media (max-width: 640px) {
@@ -85,6 +273,22 @@
   .technology,.people,.insights,.packageBand { padding-block: 108px !important; }
   .botStage { min-height: 700px !important; margin-top: 64px !important; }
   .peopleMedia { min-height: 480px !important; }
-  .featuredInsight { min-height: 500px !important; }
-  .packagePanel { padding: 15px !important; }
+  .featuredInsight { min-height: 500px !important; padding: 28px !important; }
+  .timeline::before { left: 38px; top: 52px; bottom: 52px; }
+  .timelineItem {
+    min-height: 164px !important;
+    padding: 24px 0 !important;
+    grid-template-columns: 74px 1fr !important;
+    gap: 16px !important;
+  }
+  .timelineItem > b { display: none; }
+  .timelineNumber { width: 62px; height: 62px; font-size: 31px !important; }
+  .timelineContent h3 { font-size: 30px !important; }
+  .timelineContent p { font-size: 11px !important; }
+  .packageBand { padding-inline: 0 !important; }
+  .packageIntro h2 { font-size: clamp(54px,16vw,72px) !important; }
+  .packageIntro > div { align-items: center; flex-direction: column; }
+  .packageOption { padding: 36px 24px 26px !important; border-radius: 22px !important; }
+  .packageRecommended { padding-top: 48px !important; }
+  .packageCardHead h3 { font-size: 48px !important; }
 }
