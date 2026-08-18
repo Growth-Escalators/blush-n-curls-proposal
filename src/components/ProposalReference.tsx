@@ -56,11 +56,36 @@ const growthLevers = [
   },
 ];
 
-const intelligenceCards = [
-  ["01", "Best acquisition service", "Which service brings in customers we can profitably retain?"],
-  ["02", "Best branch opportunity", "Where should more spend go: Al Qusais, Al Barsha or Mankhool?"],
-  ["03", "Best offer", "Which offer creates booked appointments instead of low-intent enquiries?"],
-  ["04", "Best customer value", "Which acquisition paths create repeat visits, memberships and referrals?"],
+const proofCards = [
+  {
+    label: "01 / Meta system",
+    title: "Recurring-service demand engine",
+    copy: "Creative, audience and offer testing around repeat-friendly services so Meta becomes predictable.",
+    metrics: ["Creative hooks", "Lead quality", "Booked visits"],
+    tone: "light",
+  },
+  {
+    label: "02 / Google system",
+    title: "High-intent search capture",
+    copy: "Search structure, offer intent and landing-page alignment built around high-value service demand.",
+    metrics: ["Search intent", "Offer fit", "Booking rate"],
+    tone: "soft",
+  },
+  {
+    label: "03 / Offer design",
+    title: "Landing pages that convert demand",
+    copy: "Premium positioning, branch-specific offers and clearer booking pathways across the website journey.",
+    metrics: ["CRO", "Lead forms", "Appointment flow"],
+    tone: "dark",
+  },
+  {
+    label: "04 / Growth intelligence",
+    title: "One growth view across all 3 branches",
+    copy: "The intelligence layer that shows which branch, service, offer and audience combinations deserve more budget.",
+    metrics: ["Branch", "Service", "Offer", "Audience"],
+    tone: "feature",
+    featured: true,
+  },
 ];
 
 const roadmap = [
@@ -243,19 +268,54 @@ export default function ProposalReference() {
               </p>
             </div>
 
+            <div className={styles.proofGrid}>
+              {proofCards.map((card) => {
+                const toneClass =
+                  card.tone === "light"
+                    ? styles.proofCardLight
+                    : card.tone === "soft"
+                      ? styles.proofCardSoft
+                      : card.tone === "dark"
+                        ? styles.proofCardDark
+                        : styles.proofCardFeature;
+
+                return (
+                  <article
+                    key={card.title}
+                    className={`${styles.proofCard} ${toneClass} ${card.featured ? styles.proofCardWide : ""}`}
+                  >
+                    <div className={styles.proofLabel}>{card.label}</div>
+                    <div className={styles.proofContent}>
+                      <div>
+                        <h3>{card.title}</h3>
+                        <p className={styles.proofCopy}>{card.copy}</p>
+                        <div className={styles.proofMetrics}>
+                          {card.metrics.map((metric) => (
+                            <span key={metric}>{metric}</span>
+                          ))}
+                        </div>
+                      </div>
+
+                      {card.featured ? (
+                        <div className={styles.proofFeatureStats}>
+                          <div><strong>3 branches</strong><small>one view</small></div>
+                          <div><strong>4 levers</strong><small>one system</small></div>
+                          <div><strong>7 days</strong><small>audit first</small></div>
+                          <div><strong>90 days</strong><small>scale next</small></div>
+                        </div>
+                      ) : null}
+                    </div>
+                    <div className={styles.proofBarVisual} aria-hidden>
+                      <i /><i /><i /><i /><i />
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+
             <div className={styles.equation}>
               <span>BRANCH</span><b>×</b><span>SERVICE</span><b>×</b><span>OFFER</span><b>×</b><span>AUDIENCE</span>
               <i>→</i><strong>GROWTH</strong>
-            </div>
-
-            <div className={styles.intelligenceGrid}>
-              {intelligenceCards.map(([num, title, copy]) => (
-                <article key={num}>
-                  <span>{num}</span>
-                  <h3>{title}</h3>
-                  <p>{copy}</p>
-                </article>
-              ))}
             </div>
           </div>
         </section>
