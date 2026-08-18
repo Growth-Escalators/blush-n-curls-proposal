@@ -1,63 +1,81 @@
 <svg width="900" height="1200" viewBox="0 0 900 1200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder salon interior — swap for real Blush N Curls branch photography">
   <defs>
     <linearGradient id="bgCta" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#241E1B" />
-      <stop offset="55%" stop-color="#3A2A28" />
-      <stop offset="100%" stop-color="#0F0E0D" />
+      <stop offset="0%" stop-color="#FBF3E9" />
+      <stop offset="55%" stop-color="#F3DFC4" />
+      <stop offset="100%" stop-color="#E7C89C" />
     </linearGradient>
-    <radialGradient id="spotlight" cx="50%" cy="8%" r="55%">
-      <stop offset="0%" stop-color="#E8CFA0" stop-opacity="0.35" />
-      <stop offset="100%" stop-color="#E8CFA0" stop-opacity="0" />
+    <linearGradient id="wall" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FAF1E3" />
+      <stop offset="100%" stop-color="#EFDCC4" />
+    </linearGradient>
+    <radialGradient id="spotlight" cx="50%" cy="4%" r="60%">
+      <stop offset="0%" stop-color="#FFFDF8" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#FFFDF8" stop-opacity="0" />
     </radialGradient>
     <linearGradient id="counter" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#B08038" stop-opacity="0.9" />
-      <stop offset="100%" stop-color="#6E5424" stop-opacity="0.9" />
+      <stop offset="0%" stop-color="#E8CFA0" />
+      <stop offset="100%" stop-color="#B08038" />
     </linearGradient>
     <linearGradient id="leaf" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#7A4456" />
-      <stop offset="100%" stop-color="#3D2422" />
+      <stop offset="0%" stop-color="#93A374" />
+      <stop offset="100%" stop-color="#5C6B45" />
     </linearGradient>
     <filter id="softCta" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="30" />
+      <feGaussianBlur stdDeviation="24" />
     </filter>
     <filter id="softerCta" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="60" />
+      <feGaussianBlur stdDeviation="55" />
     </filter>
   </defs>
 
   <rect width="900" height="1200" fill="url(#bgCta)" />
+
+  <!-- bright back wall panel -->
+  <rect x="0" y="0" width="900" height="770" fill="url(#wall)" />
   <rect width="900" height="1200" fill="url(#spotlight)" />
 
-  <!-- soft ambient glows -->
-  <circle cx="150" cy="220" r="180" fill="#B85078" opacity="0.14" filter="url(#softerCta)" />
-  <circle cx="740" cy="1000" r="220" fill="#B08038" opacity="0.14" filter="url(#softerCta)" />
+  <!-- soft warm ambient glows -->
+  <circle cx="160" cy="190" r="210" fill="#E8CFA0" opacity="0.4" filter="url(#softerCta)" />
+  <circle cx="740" cy="980" r="240" fill="#B85078" opacity="0.1" filter="url(#softerCta)" />
 
-  <!-- reception counter suggestion -->
-  <rect x="0" y="760" width="900" height="16" fill="url(#counter)" opacity="0.85" />
-  <rect x="0" y="776" width="900" height="424" fill="#171310" opacity="0.9" />
-  <rect x="60" y="700" width="240" height="60" rx="6" fill="none" stroke="#E8CFA0" stroke-opacity="0.35" stroke-width="1.5" />
+  <!-- reception counter -->
+  <rect x="0" y="760" width="900" height="18" fill="url(#counter)" />
+  <rect x="0" y="778" width="900" height="422" fill="#F4E6D2" />
 
-  <!-- pendant lights -->
-  <g stroke="#E8CFA0" stroke-width="1.5" opacity="0.4">
-    <line x1="200" y1="0" x2="200" y2="260" />
-    <line x1="450" y1="0" x2="450" y2="300" />
-    <line x1="700" y1="0" x2="700" y2="240" />
+  <!-- nameplate panel behind counter, evokes signage without literal text -->
+  <rect x="60" y="655" width="270" height="72" rx="8" fill="none" stroke="#B08038" stroke-opacity="0.5" stroke-width="1.5" />
+  <g transform="translate(195,691)" stroke="#96702E" stroke-width="2.5" fill="none" stroke-linecap="round">
+    <path d="M -78 0 h 44" stroke-opacity="0.45" />
+    <path d="M 34 0 h 44" stroke-opacity="0.45" />
+    <circle cx="0" cy="0" r="17" stroke-opacity="0.9" />
+    <path d="M -6.5 0 C -6.5 -11, 6.5 -11, 6.5 0 C 6.5 6.5, 2 9.5, -2.5 6.5" stroke-opacity="0.9" />
   </g>
-  <circle cx="200" cy="270" r="14" fill="#E8CFA0" opacity="0.55" filter="url(#softCta)" />
-  <circle cx="450" cy="310" r="14" fill="#E8CFA0" opacity="0.55" filter="url(#softCta)" />
-  <circle cx="700" cy="250" r="14" fill="#E8CFA0" opacity="0.55" filter="url(#softCta)" />
 
-  <!-- soft plant / botanical silhouette, bottom right -->
-  <g filter="url(#softCta)" opacity="0.8">
+  <!-- pendant lights, warm glow -->
+  <g stroke="#B08038" stroke-width="1.5" opacity="0.3">
+    <line x1="200" y1="0" x2="200" y2="230" />
+    <line x1="450" y1="0" x2="450" y2="270" />
+    <line x1="700" y1="0" x2="700" y2="210" />
+  </g>
+  <circle cx="200" cy="240" r="16" fill="#FFF8EA" opacity="0.95" filter="url(#softCta)" />
+  <circle cx="450" cy="280" r="16" fill="#FFF8EA" opacity="0.95" filter="url(#softCta)" />
+  <circle cx="700" cy="220" r="16" fill="#FFF8EA" opacity="0.95" filter="url(#softCta)" />
+
+  <!-- potted plant, bottom right -->
+  <g filter="url(#softCta)" opacity="0.9">
     <path d="M 780 1200 C 760 1000, 820 900, 900 860 L 900 1200 Z" fill="url(#leaf)" />
-    <path d="M 700 1200 C 690 1050, 730 950, 800 900 C 770 1000, 760 1120, 760 1200 Z" fill="url(#leaf)" opacity="0.7" />
+    <path d="M 700 1200 C 690 1050, 730 950, 800 900 C 770 1000, 760 1120, 760 1200 Z" fill="url(#leaf)" opacity="0.8" />
+  </g>
+  <path d="M 810 1140 L 890 1140 L 878 1200 L 822 1200 Z" fill="#C98F73" opacity="0.55" />
+
+  <!-- small potted plant, left foreground -->
+  <g filter="url(#softCta)" opacity="0.85">
+    <path d="M 40 1200 C 20 1080, 60 1010, 120 990 C 100 1060, 95 1140, 100 1200 Z" fill="url(#leaf)" />
   </g>
 
-  <!-- abstract monogram mark, evokes a salon nameplate without literal text -->
-  <g transform="translate(150,470)" opacity="0.5" stroke="#E8CFA0" stroke-width="2" fill="none">
-    <circle cx="0" cy="0" r="34" />
-    <path d="M -14 10 C -14 -14, 14 -14, 14 10 C 14 20, 6 26, -2 20" stroke-linecap="round" />
-  </g>
+  <!-- soft floor line -->
+  <rect x="0" y="1194" width="900" height="6" fill="#B08038" opacity="0.18" />
 
   <rect width="900" height="1200" fill="url(#bgCta)" opacity="0.04" />
 </svg>
