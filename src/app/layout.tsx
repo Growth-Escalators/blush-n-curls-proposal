@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Barlow_Condensed, Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -16,10 +16,17 @@ const inter = Inter({
   display: "swap",
 });
 
+const barlow = Barlow_Condensed({
+  subsets: ["latin"],
+  variable: "--font-barlow",
+  weight: ["600", "700", "800"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Growth Partnership Proposal for Blush N Curls | Growth Escalators",
   description:
-    "A private growth partnership proposal prepared by Growth Escalators for Blush N Curls — acquire, convert, retain and grow your best customers.",
+    "A private growth partnership proposal prepared by Growth Escalators for Blush N Curls — acquisition, conversion, retention and growth intelligence in one connected system.",
   robots: {
     index: false,
     follow: false,
@@ -36,7 +43,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${inter.variable} h-full antialiased`}
+      className={`${playfair.variable} ${inter.variable} ${barlow.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-ivory font-sans text-ink">
         {children}
