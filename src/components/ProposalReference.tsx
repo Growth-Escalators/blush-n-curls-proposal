@@ -1,5 +1,6 @@
 import { ArrowUpRight, Check } from "lucide-react";
 import styles from "./ProposalReference.module.css";
+import tune from "./ProposalReferenceTune.module.css";
 
 const PROOF = [
   { value: "7", label: "days to complete the audit" },
@@ -236,9 +237,9 @@ export default function ProposalReference() {
       </header>
 
       <main>
-        <section id="top" className={styles.hero}>
+        <section id="top" className={`${styles.hero} ${tune.hero}`}>
           <div className={styles.heroBackdrop} aria-hidden />
-          <div className={styles.heroShell}>
+          <div className={`${styles.heroShell} ${tune.heroShell}`}>
             <div className={styles.heroCopy}>
               <p className={styles.eyebrow}>Proposal for Blush N Curls · Dubai</p>
               <h1 className={styles.heroTitle}>
@@ -253,9 +254,9 @@ export default function ProposalReference() {
               </div>
             </div>
 
-            <div className={styles.heroStage} aria-label="Blush N Curls growth system visual">
+            <div className={`${styles.heroStage} ${tune.heroStage}`} aria-label="Blush N Curls growth system visual">
               <div className={styles.heroStageRail}><span>01 / ACQUISITION</span><span>02 / EXPERIENCE</span><span>03 / RETENTION</span></div>
-              <div className={styles.heroMedia}>
+              <div className={`${styles.heroMedia} ${tune.heroMedia}`}>
                 <div className={styles.heroCanvasGrid} />
                 <div className={styles.heroCanvasTitle}>ONE CONNECTED<br /><strong>GROWTH SYSTEM.</strong></div>
                 <div className={styles.heroPath} />
@@ -264,27 +265,27 @@ export default function ProposalReference() {
                 <span className={`${styles.heroNode} ${styles.heroNodeThree}`}>BOOKINGS</span>
                 <span className={`${styles.heroNode} ${styles.heroNodeFour}`}>RETENTION</span>
               </div>
-              <div className={styles.heroInset}>
-                <span>GROWTH VIEW</span>
+              <div className={`${styles.heroInset} ${tune.heroInset}`}>
+                <span>BLUSH N CURLS</span>
                 <strong>3</strong>
-                <small>branches connected</small>
+                <small>Dubai branches connected</small>
               </div>
               <div className={styles.heroMetric}><span>START HERE</span><strong>7D</strong><small>full growth audit</small></div>
               <div className={styles.heroTag}>DUBAI × GROWTH</div>
             </div>
           </div>
 
-          <div className={styles.proofRail}>
+          <div className={`${styles.proofRail} ${tune.proofRail}`}>
             {PROOF.map((item) => <div className={styles.proofItem} key={item.label}><strong>{item.value}</strong><span>{item.label}</span></div>)}
           </div>
         </section>
 
-        <section className={styles.brands} aria-label="Connected growth capabilities">
+        <section className={`${styles.brands} ${tune.brands}`} aria-label="Connected growth capabilities">
           <div className={styles.sectionShell}><div className={styles.brandHeading}><p className={styles.eyebrow}>Connected around one commercial goal</p><span>Acquire → Convert → Retain → Measure</span></div></div>
           <div className={styles.brandMarquee}><div className={styles.brandTrack}>{[...MARQUEE, ...MARQUEE].map((item, index) => <span key={`${item}-${index}`}>{item}</span>)}</div></div>
         </section>
 
-        <section id="system" className={styles.services}>
+        <section id="system" className={`${styles.services} ${tune.services}`}>
           <div className={styles.sectionShell}>
             <div className={styles.servicesIntro}>
               <p className={styles.eyebrow}>One connected growth system</p>
@@ -293,12 +294,12 @@ export default function ProposalReference() {
               <a className={styles.pillCta} href="#proof">See how we execute</a>
             </div>
 
-            <div className={styles.serviceGrid}>
+            <div className={`${styles.serviceGrid} ${tune.serviceGrid}`}>
               {SERVICES.map((service) => {
                 const featured = "featured" in service && service.featured;
                 const eyebrow = "eyebrow" in service ? service.eyebrow : undefined;
                 return (
-                  <article className={`${styles.serviceCard} ${featured ? styles.serviceFeatured : ""}`} key={service.title}>
+                  <article className={`${styles.serviceCard} ${tune.serviceCard} ${featured ? styles.serviceFeatured : ""}`} key={service.title}>
                     <div className={styles.serviceContent}>
                       {eyebrow ? <p className={styles.serviceEyebrow}>{eyebrow}</p> : null}
                       <h3>{service.title}</h3>
@@ -313,7 +314,7 @@ export default function ProposalReference() {
           </div>
         </section>
 
-        <section id="proof" className={styles.work}>
+        <section id="proof" className={`${styles.work} ${tune.work}`}>
           <div className={styles.sectionShell}>
             <div className={styles.workIntro}>
               <div><p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>The growth plan</p><h2>Growth you can see.<br />Proof you can measure.</h2></div>
@@ -324,8 +325,8 @@ export default function ProposalReference() {
               {WORK.map((item) => {
                 const featured = "featured" in item && item.featured;
                 return (
-                  <article className={`${styles.caseCard} ${featured ? styles.caseCardFeature : ""}`} key={item.title}>
-                    <div className={styles.caseMedia}><WorkVisual type={item.visual} /></div>
+                  <article className={`${styles.caseCard} ${tune.caseCard} ${featured ? styles.caseCardFeature : ""}`} key={item.title}>
+                    <div className={`${styles.caseMedia} ${tune.caseMedia}`}><WorkVisual type={item.visual} /></div>
                     <div className={styles.caseBody}>
                       <div className={styles.caseCategory}>{item.category}</div>
                       <h3>{item.title}</h3>
@@ -339,14 +340,14 @@ export default function ProposalReference() {
           </div>
         </section>
 
-        <section className={styles.technology}>
+        <section className={`${styles.technology} ${tune.technology}`}>
           <div className={styles.sectionShell}>
             <div className={styles.techTop}>
               <div className={styles.techCopy}><p className={styles.eyebrow}>Growth intelligence</p><h2>Meet your growth advantage.</h2><p>Instead of isolated channel reports, we connect spend to service demand, bookings, branch performance and repeat value so the next decision is obvious.</p><a href="#packages" className={styles.darkPill}>See the growth partnership</a></div>
               <div className={styles.techBenefits}><span>Branch-level acquisition view</span><span>Service + offer performance</span><span>Booking and conversion visibility</span><span>Retention and reputation signals</span></div>
             </div>
 
-            <div className={styles.botStage}>
+            <div className={`${styles.botStage} ${tune.botStage}`}>
               <div className={styles.botGlow} />
               <div className={styles.botWindow}>
                 <div className={styles.botHeader}><div><b>Blush Growth Intelligence</b><span>One commercial view</span></div><span className={styles.online}><i /> Live system</span></div>
@@ -364,11 +365,11 @@ export default function ProposalReference() {
           </div>
         </section>
 
-        <section className={styles.people}>
+        <section className={`${styles.people} ${tune.people}`}>
           <div className={styles.sectionShell}>
             <div className={styles.peopleGrid}>
               <div className={styles.peopleCopy}><p className={styles.eyebrow}>How we operate</p><h2>Human-led.<br />AI-enabled.<br />Accountable.</h2><p>Strategy stays close to execution. Performance, creative, CRO, SEO and retention decisions are reviewed against the same commercial outcomes instead of disappearing into separate channel reports.</p><a className={styles.pillOutline} href="#roadmap">See how we move</a></div>
-              <div className={styles.peopleMedia} aria-label="No-face operating system visual">
+              <div className={`${styles.peopleMedia} ${tune.peopleMedia}`} aria-label="No-face operating system visual">
                 <div className={styles.peopleMain}>
                   <div className={styles.operatorHeader}><span>ONE GROWTH TEAM</span><b>BLUSH N CURLS</b></div>
                   <div className={styles.operatorGrid}><i>PERFORMANCE</i><i>CREATIVE</i><i>CRO</i><i>SEO</i><i>RETENTION</i><i>ANALYTICS</i></div>
@@ -381,21 +382,21 @@ export default function ProposalReference() {
           </div>
         </section>
 
-        <section id="roadmap" className={styles.insights}>
+        <section id="roadmap" className={`${styles.insights} ${tune.insights}`}>
           <div className={styles.sectionShell}>
             <div className={styles.insightsHeading}><div><p className={styles.eyebrow}>How we move</p><h2>Thinking built<br />to move the work.</h2></div><span>7 / 30 / 60 / 90</span></div>
             <div className={styles.insightsLayout}>
-              <article className={styles.featuredInsight}><span>01 / THE FIRST 90 DAYS</span><h3>AUDIT FIRST.<br />FIX ACQUISITION.<br />THEN COMPOUND.</h3><p>The operating principle is simple: diagnose the leaks, stabilise paid acquisition, improve conversion, then add retention and organic compounding.</p><div className={styles.featuredInsightTags}><i>Audit</i><i>Meta</i><i>Google</i><i>CRO</i><i>Retention</i></div></article>
+              <article className={`${styles.featuredInsight} ${tune.featuredInsight}`}><span>01 / THE FIRST 90 DAYS</span><h3>AUDIT FIRST.<br />FIX ACQUISITION.<br />THEN COMPOUND.</h3><p>The operating principle is simple: diagnose the leaks, stabilise paid acquisition, improve conversion, then add retention and organic compounding.</p><div className={styles.featuredInsightTags}><i>Audit</i><i>Meta</i><i>Google</i><i>CRO</i><i>Retention</i></div></article>
               <div className={styles.insightList}>{ROADMAP.map(([num,when,title,copy]) => <article key={num}><span>{num}</span><div><small>{when}</small><h3>{title}</h3><p>{copy}</p></div><b>↗</b></article>)}</div>
             </div>
           </div>
         </section>
 
-        <section id="packages" className={styles.packageBand}>
+        <section id="packages" className={`${styles.packageBand} ${tune.packageBand}`}>
           <div className={styles.sectionShell}>
             <div className={styles.packageLayout}>
-              <div className={styles.packageIntro}><p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>Partnership options</p><h2>Choose your<br />growth partnership.</h2><p>Performance improves the advertising. Growth Partnership builds the system around it.</p><div className={styles.packageChecks}><span><Check size={15} /> 7-day audit first</span><span><Check size={15} /> No team-member faces</span><span><Check size={15} /> Clear monthly scope</span></div></div>
-              <div className={styles.packagePanel}>
+              <div className={styles.packageIntro}><p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>Partnership options</p><h2>Get your<br />growth partnership.</h2><p>Performance improves the advertising. Growth Partnership builds the system around it.</p><div className={styles.packageChecks}><span><Check size={15} /> 7-day audit first</span><span><Check size={15} /> No team-member faces</span><span><Check size={15} /> Clear monthly scope</span></div></div>
+              <div className={`${styles.packagePanel} ${tune.packagePanel}`}>
                 <article className={styles.packageOption}><div><span>PERFORMANCE</span><h3>AED 2,500 <small>/ month</small></h3><p>A focused acquisition partnership.</p></div><ul>{PERFORMANCE.map(item => <li key={item}><Check size={14} />{item}</li>)}</ul></article>
                 <article className={`${styles.packageOption} ${styles.packageRecommended}`}><div className={styles.recommendedLabel}>RECOMMENDED FOR BLUSH N CURLS</div><div><span>GROWTH PARTNERSHIP</span><h3>AED 4,000 <small>/ month</small></h3><p>Acquisition, conversion, retention and intelligence connected.</p></div><ul>{GROWTH.map(item => <li key={item}><Check size={14} />{item}</li>)}</ul></article>
                 <a href="#top" className={styles.packageButton}>Start with the 7-day audit <ArrowUpRight size={16} /></a>
