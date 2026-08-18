@@ -31,7 +31,7 @@ jobs:
         run: npm run build
 
       - name: Install Chromium
-        run: npx --yes playwright@1.55.0 install --with-deps chromium
+        run: npx --yes playwright@1.55.0 install chromium
 
       - name: Start production server
         run: |
