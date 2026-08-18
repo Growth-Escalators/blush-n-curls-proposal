@@ -1,0 +1,61 @@
+<svg width="900" height="1100" viewBox="0 0 900 1100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder portrait — swap for real Blush N Curls salon photography">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8F0F0" />
+      <stop offset="45%" stop-color="#E8C4CE" />
+      <stop offset="100%" stop-color="#8C4A62" />
+    </linearGradient>
+    <radialGradient id="glowGold" cx="72%" cy="18%" r="45%">
+      <stop offset="0%" stop-color="#E8CFA0" stop-opacity="0.55" />
+      <stop offset="100%" stop-color="#E8CFA0" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="figure" x1="20%" y1="0%" x2="90%" y2="100%">
+      <stop offset="0%" stop-color="#5B3A34" />
+      <stop offset="55%" stop-color="#7A4456" />
+      <stop offset="100%" stop-color="#3D2422" />
+    </linearGradient>
+    <linearGradient id="skin" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E7B79A" />
+      <stop offset="100%" stop-color="#C98F73" />
+    </linearGradient>
+    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="38" />
+    </filter>
+    <filter id="softer" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="70" />
+    </filter>
+  </defs>
+
+  <rect width="900" height="1100" fill="url(#bg)" />
+  <rect width="900" height="1100" fill="url(#glowGold)" />
+
+  <!-- soft ambient bokeh blobs -->
+  <circle cx="120" cy="180" r="160" fill="#B85078" opacity="0.18" filter="url(#softer)" />
+  <circle cx="760" cy="900" r="220" fill="#B08038" opacity="0.16" filter="url(#softer)" />
+  <circle cx="150" cy="950" r="140" fill="#F8E8E8" opacity="0.35" filter="url(#soft)" />
+
+  <!-- abstract flowing hair / shoulder silhouette, off-center right, facing left -->
+  <g filter="url(#soft)">
+    <path d="M 620 90
+             C 760 140, 830 300, 800 460
+             C 780 580, 700 620, 690 720
+             C 682 800, 730 860, 760 960
+             C 780 1030, 760 1080, 700 1100
+             L 900 1100 L 900 0 L 560 0
+             C 590 30, 605 60, 620 90 Z" fill="url(#figure)" opacity="0.92" />
+  </g>
+
+  <!-- head / shoulder mass -->
+  <ellipse cx="640" cy="330" rx="150" ry="190" fill="url(#skin)" opacity="0.9" filter="url(#soft)" />
+  <path d="M 470 520 C 520 460, 640 430, 740 470 C 830 505, 860 600, 840 700
+           L 900 1100 L 430 1100 C 420 900, 440 700, 470 520 Z"
+        fill="url(#figure)" opacity="0.85" filter="url(#soft)" />
+
+  <!-- fine decorative gold line accents, evoking flowing hair strands -->
+  <g stroke="#E8CFA0" stroke-width="2" fill="none" opacity="0.5" stroke-linecap="round">
+    <path d="M 560 140 C 640 230, 660 340, 610 430" />
+    <path d="M 600 160 C 690 260, 700 380, 640 470" />
+  </g>
+
+  <rect width="900" height="1100" fill="url(#bg)" opacity="0.06" />
+</svg>
