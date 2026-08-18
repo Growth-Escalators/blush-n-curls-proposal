@@ -100,16 +100,39 @@
 .intelligenceIntro { display: grid; grid-template-columns: 1.05fr .75fr; gap: 70px; align-items: end; }
 .intelligenceIntro h2 { color: #fff; }
 .intelligenceIntro > p { max-width: 510px; margin: 0 0 8px auto; color: #d8d0ff; font: 500 15px/1.7 var(--font-inter),sans-serif; }
-.equation { margin: clamp(50px,6vw,84px) 0 34px; padding: 24px 26px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 14px; border-block: 1px solid var(--light-line); }
+.proofGrid { margin-top: clamp(42px,5vw,60px); display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; }
+.proofCard { position: relative; min-height: 280px; padding: 28px; border-radius: 28px; overflow: hidden; border: 1px solid rgba(255,255,255,.14); }
+.proofCard::before { content: ""; position: absolute; width: 220px; height: 220px; right: -60px; bottom: -110px; border-radius: 50%; background: rgba(255,255,255,.12); filter: blur(4px); }
+.proofCardLight { color: var(--ink); background: linear-gradient(160deg,#f6f4ff 0%,#ebe7ff 100%); border-color: rgba(255,255,255,.18); }
+.proofCardSoft { color: var(--ink); background: linear-gradient(160deg,#ffffff 0%,#efecff 100%); border-color: rgba(255,255,255,.2); }
+.proofCardDark { color: #fff; background: linear-gradient(160deg,#2a166d 0%,#13053d 100%); }
+.proofCardFeature { color: #fff; background: linear-gradient(135deg,#5d35ff 0%,#1a065b 100%); }
+.proofCardWide { grid-column: 1 / -1; min-height: 240px; }
+.proofLabel { position: relative; z-index: 2; display: inline-flex; align-items: center; min-height: 30px; padding: 0 12px; border-radius: 999px; background: rgba(255,255,255,.14); font: 800 8px/1 var(--font-inter),sans-serif; letter-spacing: .14em; text-transform: uppercase; }
+.proofCardLight .proofLabel, .proofCardSoft .proofLabel { color: var(--ink); background: rgba(36,23,96,.08); }
+.proofContent { position: relative; z-index: 2; margin-top: 28px; }
+.proofCardWide .proofContent { display: grid; grid-template-columns: 1.1fr .9fr; gap: 28px; align-items: end; }
+.proofCard h3 { margin: 0 0 12px; font: 800 clamp(32px,3.7vw,52px)/.88 var(--font-barlow),sans-serif; letter-spacing: -.03em; text-transform: uppercase; }
+.proofCopy { max-width: 420px; margin: 0; color: rgba(255,255,255,.78); font: 500 13px/1.62 var(--font-inter),sans-serif; }
+.proofCardLight .proofCopy, .proofCardSoft .proofCopy { color: #5a5477; }
+.proofMetrics { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 8px; }
+.proofMetrics span { padding: 8px 11px; border-radius: 999px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.14); color: inherit; font: 800 8px/1 var(--font-inter),sans-serif; letter-spacing: .1em; text-transform: uppercase; }
+.proofCardLight .proofMetrics span, .proofCardSoft .proofMetrics span { background: rgba(36,23,96,.06); border-color: rgba(36,23,96,.08); }
+.proofFeatureStats { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
+.proofFeatureStats div { min-height: 82px; padding: 16px 18px; display: flex; flex-direction: column; justify-content: center; border-radius: 18px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.12); }
+.proofFeatureStats strong { font: 800 24px/.9 var(--font-barlow),sans-serif; text-transform: uppercase; }
+.proofFeatureStats small { margin-top: 8px; color: rgba(255,255,255,.76); font: 800 8px/1.2 var(--font-inter),sans-serif; letter-spacing: .13em; text-transform: uppercase; }
+.proofBarVisual { position: absolute; left: 28px; right: 28px; bottom: 24px; height: 68px; display: flex; gap: 8px; align-items: end; }
+.proofBarVisual i { flex: 1; border-radius: 10px 10px 0 0; background: rgba(255,255,255,.22); }
+.proofBarVisual i:nth-child(1){height:26%}.proofBarVisual i:nth-child(2){height:42%}.proofBarVisual i:nth-child(3){height:58%}.proofBarVisual i:nth-child(4){height:82%}.proofBarVisual i:nth-child(5){height:100%;background:var(--berry)}
+.proofCardLight .proofBarVisual i, .proofCardSoft .proofBarVisual i { background: rgba(36,23,96,.08); }
+.proofCardLight .proofBarVisual i:nth-child(5), .proofCardSoft .proofBarVisual i:nth-child(5) { background: var(--berry); }
+.proofCardWide .proofBarVisual { width: 220px; left: auto; right: 28px; }
+.equation { margin: clamp(34px,4vw,48px) 0 0; padding: 24px 26px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 14px; border-block: 1px solid var(--light-line); }
 .equation span { color: #f4edff; font: 800 clamp(25px,2.8vw,41px)/1 var(--font-barlow),sans-serif; letter-spacing: -.02em; }
 .equation b { color: var(--gold); font: 600 20px/1 var(--font-playfair),serif; }
 .equation i { margin: 0 8px; color: #b8abff; font-style: normal; }
 .equation strong { padding: 10px 15px; border-radius: 12px; background: var(--berry); font: 800 24px/1 var(--font-barlow),sans-serif; }
-.intelligenceGrid { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; }
-.intelligenceGrid article { min-height: 245px; padding: 26px; border: 1px solid var(--light-line); border-radius: 22px; background: rgba(255,255,255,.04); }
-.intelligenceGrid article > span { color: var(--gold); font: 800 10px/1 var(--font-inter),sans-serif; letter-spacing: .16em; }
-.intelligenceGrid h3 { margin: 44px 0 12px; font: 800 30px/.9 var(--font-barlow),sans-serif; text-transform: uppercase; letter-spacing: -.025em; }
-.intelligenceGrid p { margin: 0; color: #c8bdf8; font: 500 12px/1.58 var(--font-inter),sans-serif; }
 
 .roadmapSection { padding: clamp(106px,10vw,158px) 0; background: #f5f1eb; }
 .roadmapIntro { display: grid; grid-template-columns: 1.05fr .75fr; gap: 60px; align-items: end; }
@@ -223,7 +246,10 @@
   .heroShell { grid-template-columns: 1fr .9fr; }
   .heroCopy h1 { font-size: clamp(66px,9vw,105px); }
   .leverCard { min-height: 350px; }
-  .intelligenceGrid { grid-template-columns: repeat(2,1fr); }
+  .proofGrid { grid-template-columns: 1fr; }
+  .proofCardWide { grid-column: auto; }
+  .proofCardWide .proofContent { grid-template-columns: 1fr; }
+  .proofCardWide .proofBarVisual { position: relative; left: 0; right: 0; width: auto; margin-top: 24px; }
   .timeline { grid-template-columns: repeat(2,1fr); }
   .timeline article:nth-child(2) { border-right: 0; }
   .timeline article:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
@@ -288,7 +314,9 @@
   .centerIntro h2, .intelligenceIntro h2, .roadmapIntro h2, .lifecycleTop h2, .ctaCopy h2 { font-size: clamp(52px,15vw,72px); }
   .leverGrid { grid-template-columns: 1fr; }
   .leverCard { min-height: 330px; }
-  .intelligenceGrid { grid-template-columns: 1fr; }
+  .proofCard { min-height: 260px; padding: 24px; }
+  .proofCard h3 { font-size: clamp(28px,11vw,44px); }
+  .proofFeatureStats { grid-template-columns: 1fr 1fr; }
   .equation { justify-content: flex-start; }
   .equation span { font-size: 24px; }
   .timeline { grid-template-columns: 1fr; border-radius: 22px; }
