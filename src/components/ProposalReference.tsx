@@ -2,7 +2,6 @@ import {
   ArrowUpRight,
   BarChart3,
   Check,
-  Layout,
   Mail,
   MessageCircle,
   MousePointerClick,
