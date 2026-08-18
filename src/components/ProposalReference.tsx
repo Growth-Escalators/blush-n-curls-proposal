@@ -294,17 +294,21 @@ export default function ProposalReference() {
             </div>
 
             <div className={styles.serviceGrid}>
-              {SERVICES.map((service) => (
-                <article className={`${styles.serviceCard} ${service.featured ? styles.serviceFeatured : ""}`} key={service.title}>
-                  <div className={styles.serviceContent}>
-                    {service.eyebrow ? <p className={styles.serviceEyebrow}>{service.eyebrow}</p> : null}
-                    <h3>{service.title}</h3>
-                    <p>{service.copy}</p>
-                    <span className={styles.cardCta}>{service.cta}</span>
-                  </div>
-                  <ServiceVisual type={service.visual} />
-                </article>
-              ))}
+              {SERVICES.map((service) => {
+                const featured = "featured" in service && service.featured;
+                const eyebrow = "eyebrow" in service ? service.eyebrow : undefined;
+                return (
+                  <article className={`${styles.serviceCard} ${featured ? styles.serviceFeatured : ""}`} key={service.title}>
+                    <div className={styles.serviceContent}>
+                      {eyebrow ? <p className={styles.serviceEyebrow}>{eyebrow}</p> : null}
+                      <h3>{service.title}</h3>
+                      <p>{service.copy}</p>
+                      <span className={styles.cardCta}>{service.cta}</span>
+                    </div>
+                    <ServiceVisual type={service.visual} />
+                  </article>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -317,17 +321,20 @@ export default function ProposalReference() {
             </div>
 
             <div className={styles.caseList}>
-              {WORK.map((item) => (
-                <article className={`${styles.caseCard} ${item.featured ? styles.caseCardFeature : ""}`} key={item.title}>
-                  <div className={styles.caseMedia}><WorkVisual type={item.visual} /></div>
-                  <div className={styles.caseBody}>
-                    <div className={styles.caseCategory}>{item.category}</div>
-                    <h3>{item.title}</h3>
-                    <span className={styles.caseCta}>What we build <Arrow /></span>
-                    <div className={styles.caseMetrics}>{item.metrics.map(([value,label]) => <div className={styles.caseMetric} key={`${item.title}-${value}`}><span>↗</span><strong>{value}</strong><small>{label}</small></div>)}</div>
-                  </div>
-                </article>
-              ))}
+              {WORK.map((item) => {
+                const featured = "featured" in item && item.featured;
+                return (
+                  <article className={`${styles.caseCard} ${featured ? styles.caseCardFeature : ""}`} key={item.title}>
+                    <div className={styles.caseMedia}><WorkVisual type={item.visual} /></div>
+                    <div className={styles.caseBody}>
+                      <div className={styles.caseCategory}>{item.category}</div>
+                      <h3>{item.title}</h3>
+                      <span className={styles.caseCta}>What we build <Arrow /></span>
+                      <div className={styles.caseMetrics}>{item.metrics.map(([value,label]) => <div className={styles.caseMetric} key={`${item.title}-${value}`}><span>↗</span><strong>{value}</strong><small>{label}</small></div>)}</div>
+                    </div>
+                  </article>
+                );
+              })}
             </div>
           </div>
         </section>
