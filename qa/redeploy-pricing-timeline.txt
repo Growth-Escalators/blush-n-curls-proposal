@@ -1,0 +1,1 @@
+Production redeploy trigger for the QA-verified pricing and timeline refinement.
