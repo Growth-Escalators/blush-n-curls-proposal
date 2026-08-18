@@ -4,7 +4,6 @@ import {
   Check,
   Layout,
   Mail,
-  MapPin,
   MessageCircle,
   MousePointerClick,
   RefreshCw,
@@ -14,7 +13,6 @@ import {
   Sparkles,
   Star,
   Target,
-  TrendingUp,
   Users,
 } from "lucide-react";
 import styles from "./ProposalReference.module.css";
@@ -237,11 +235,12 @@ export default function ProposalReference() {
             <div className={styles.intelligenceIntro}>
               <div>
                 <p className={`${styles.eyebrow} ${styles.eyebrowLight}`}>Growth intelligence</p>
-                <h2>Know what actually<br />drives growth.</h2>
+                <h2>Growth you can see.<br />Proof you can measure.</h2>
               </div>
               <p>
-                The goal is not the cheapest lead. It is finding the combinations that create the
-                most valuable salon customers — then giving those combinations more budget.
+                The objective is not vanity performance. It is to see which branch, service,
+                offer and audience combinations create the highest-value salon customers — and
+                build the next round of spend around those signals.
               </p>
             </div>
 
