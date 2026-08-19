@@ -35,23 +35,26 @@ jobs:
 
       - name: Start production server
         run: |
-          npm start > /tmp/blush-next.log 2>&1 &
-          echo $! > /tmp/blush-next.pid
+          npm start > /tmp/proposal-next.log 2>&1 &
+          echo $! > /tmp/proposal-next.pid
           for i in {1..45}; do
             if curl -fsS http://127.0.0.1:3000 >/dev/null; then
               exit 0
             fi
             sleep 2
           done
-          cat /tmp/blush-next.log
+          cat /tmp/proposal-next.log
           exit 1
 
       - name: Capture full-page screenshots
         run: |
           mkdir -p qa-artifacts
-          npx --yes playwright@1.55.0 screenshot --browser chromium --viewport-size="1440,1000" --full-page http://127.0.0.1:3000 qa-artifacts/desktop-1440.png
-          npx --yes playwright@1.55.0 screenshot --browser chromium --viewport-size="1024,900" --full-page http://127.0.0.1:3000 qa-artifacts/tablet-1024.png
-          npx --yes playwright@1.55.0 screenshot --browser chromium --viewport-size="390,844" --full-page http://127.0.0.1:3000 qa-artifacts/mobile-390.png
+          npx --yes playwright@1.55.0 screenshot --browser chromium --viewport-size="1440,1000" --full-page http://127.0.0.1:3000 qa-artifacts/blush-desktop-1440.png
+          npx --yes playwright@1.55.0 screenshot --browser chromium --viewport-size="1024,900" --full-page http://127.0.0.1:3000 qa-artifacts/blush-tablet-1024.png
+          npx --yes playwright@1.55.0 screenshot --browser chromium --viewport-size="390,844" --full-page http://127.0.0.1:3000 qa-artifacts/blush-mobile-390.png
+          npx --yes playwright@1.55.0 screenshot --browser chromium --viewport-size="1440,1000" --full-page http://127.0.0.1:3000/sarvaank qa-artifacts/sarvaank-desktop-1440.png
+          npx --yes playwright@1.55.0 screenshot --browser chromium --viewport-size="1024,900" --full-page http://127.0.0.1:3000/sarvaank qa-artifacts/sarvaank-tablet-1024.png
+          npx --yes playwright@1.55.0 screenshot --browser chromium --viewport-size="390,844" --full-page http://127.0.0.1:3000/sarvaank qa-artifacts/sarvaank-mobile-390.png
 
       - name: Upload screenshots
         uses: actions/upload-artifact@v4

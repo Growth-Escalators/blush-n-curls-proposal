@@ -1,0 +1,17 @@
+.theme {
+  --ink: #0b1f4f;
+  --ink-2: #10213f;
+  --navy: #071a42;
+  --blue: #2563eb;
+  --violet: #6d4aff;
+  --orange: #f59e0b;
+  --pink: #10b981;
+  --ice: #edf4ff;
+  --ice-2: #e4eeff;
+  --cream: #f7f9fc;
+  --muted: #64748b;
+}
+
+.theme :global(body) {
+  background: #f7f9fc;
+}
